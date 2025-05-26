@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>호호참숯불닭발</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="img/logo.png" alt="호호 로고" />
+      </div>
+      <ul>
+        <li><a href="#menu">메뉴</a></li>
+        <li><a href="#gallery">갤러리</a></li>
+        <li><a href="#youtube">유튜브</a></li>
+        <li><a href="#reviews">후기</a></li>
+        <li><a href="blog.html">블로그</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <h1>불향 가득! 닭발의 신세계</h1>
+      <p>참숯불로 구운 제대로 된 닭발, 지금 만나보세요.</p>
+      <a href="#menu" class="btn">대표 메뉴 보기</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="menu" class="section">
+      <h2>대표 메뉴</h2>
+      <div class="menu-list">
+        <div class="menu-item"><img src="img/img1.jpg" /><h3>통뼈 국물닭발</h3><span>22,000원</span></div>
+        <div class="menu-item"><img src="img/img2.jpg" /><h3>무뼈 국물양념발</h3><span>22,000원</span></div>
+        <div class="menu-item"><img src="img/img3.jpg" /><h3>무뼈 참숯양념닭발</h3><span>22,000원</span></div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section">
+      <h2>갤러리</h2>
+      <div class="gallery-grid gallery-large">
+        <img src="img/img1.jpg" />
+        <img src="img/img2.jpg" />
+        <img src="img/img3.jpg" />
+        <img src="img/img4.jpg" />
+      </div>
+    </section>
+
+    <section id="youtube" class="section">
+      <h2>유튜브 영상</h2>
+      <div class="youtube-grid">
+        <iframe src="https://www.youtube.com/embed/9bZkp7q19f0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/IcrbM1l_BoI" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/fLexgOxsZu0" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section id="reviews" class="section">
+      <h2>고객 후기</h2>
+      <form class="review-form" onsubmit="submitReview(event)">
+        <input type="text" placeholder="이름" id="reviewerName" required />
+        <select id="reviewStars" required>
+          <option value="5">★★★★★</option>
+          <option value="4">★★★★☆</option>
+          <option value="3">★★★☆☆</option>
+          <option value="2">★★☆☆☆</option>
+          <option value="1">★☆☆☆☆</option>
+        </select>
+        <textarea placeholder="후기를 작성해주세요" id="reviewContent" required></textarea>
+        <button type="submit">후기 작성하기</button>
+      </form>
+      <div id="review-list" class="review-list"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <img src="img/banner.png" class="footer-banner" />
+    <p>대표자: 이수연 | 사업자등록번호: 343-23-00944</p>
+    <p>경북 구미시 산호대로25길 34-29, 1층(옥계동)</p>
+    <p>📞 054-475-1668 | ✉️ hohocf@naver.com</p>
+    <p>&copy; 2025 호호참숯불닭발. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
