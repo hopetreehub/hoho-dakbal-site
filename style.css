@@ -196,3 +196,54 @@ footer {
   margin: 0 auto 20px auto;
   display: block;
 }
+/* === 메뉴판(menu.html) 전용 스타일 === */
+.menu-board {
+  max-width: 800px;
+  margin: auto;
+  padding: 30px;
+  background: #fff8f2;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.menu-board h2 {
+  color: #d62828;
+  margin-top: 40px;
+}
+
+.menu-board ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.menu-board li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 18px;
+}
+.gallery-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px 0;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.gallery-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-slider img {
+  flex: 0 0 auto;
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  scroll-snap-align: start;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+.gallery-slider img:hover {
+  transform: scale(1.05);
+}
