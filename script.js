@@ -21,3 +21,15 @@ function submitReview(event) {
   document.getElementById('reviewStars').value = '5';
   document.getElementById('reviewContent').value = '';
 }
+let currentIndex = 0;
+const track = document.getElementById('galleryTrack');
+const images = track.querySelectorAll('img');
+const total = images.length;
+
+function slideGallery() {
+  currentIndex = (currentIndex + 1) % total;
+  const scrollAmount = currentIndex * (320 + 20); // 이미지 너비 + gap
+  track.style.transform = `translateX(-${scrollAmount}px)`;
+}
+
+setInterval(slideGallery, 3000); // 3초마다 슬라이드

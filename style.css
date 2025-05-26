@@ -247,3 +247,24 @@ footer {
 .gallery-slider img:hover {
   transform: scale(1.05);
 }
+.gallery-carousel {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.gallery-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
+  width: max-content;
+}
+
+.gallery-track img {
+  width: 320px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
