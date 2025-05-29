@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>호호참숯불닭발 - 리뷰 작성</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF3B30',
+                        secondary: '#FF4500'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '3xl', // 수정: 3xl 대신 32px 등 실제 값으로 설정
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f8f8f8; /* Light gray background */
+        }
+        .star-rating input[type="radio"] {
+            display: none;
+        }
+        .star-rating label {
+            font-size: 2rem;
+            color: #ccc;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .star-rating label:hover,
+        .star-rating label:hover ~ label,
+        .star-rating input[type="radio"]:checked ~ label {
+            color: #FFD700; /* Gold color for selected stars */
+        }
+        .star-rating {
+            display: flex;
+            flex-direction: row-reverse; /* Reverses order to make clicking intuitive */
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- 상단 바 (간소화) -->
+    <header class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="호호참숯불닭발-홈피.html" class="flex items-center text-gray-900">
+                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                    <span class="text-white font-bold">호호</span>
+                </div>
+                <h1 class="ml-2 text-xl font-bold">호호참숯불닭발</h1>
+            </a>
+            <a href="호호참숯불닭발-홈피.html#review" class="text-gray-700 hover:text-primary font-medium">
+                리뷰 목록으로 돌아가기
+            </a>
+        </div>
+    </header>
+
+    <!-- 리뷰 작성 섹션 -->
+    <section class="py-16">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 bg-white p-8 rounded-lg shadow-md">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">리뷰 <span class="text-primary">작성하기</span></h2>
+                <p class="text-gray-600">호호참숯불닭발에 대한 소중한 의견을 남겨주세요!</p>
+            </div>
+            
+            <form id="review-form" class="space-y-6">
+                <!-- [데이터베이스 연동 필요] 리뷰 데이터 저장 
+                     클라이언트(브라우저)에서 Google Sheet로 직접 데이터 전송은 보안 및 CORS 정책으로 인해 제한됩니다.
+                     Google Apps Script, Firebase, 또는 백엔드 서버(Node.js, Python 등)를 통해 API를 구축하여 연동해야 합니다.
+                     폼 제출 시 서버로 데이터를 보내는 코드를 여기에 추가해야 합니다.
+                -->
+                <div>
+                    <label for="reviewer-name" class="block text-sm font-medium text-gray-700 mb-1">이름</label>
+                    <input type="text" id="reviewer-name" name="reviewer-name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="이름을 입력해주세요" required>
+                </div>
+
+                <div>
+                    <label for="review-title" class="block text-sm font-medium text-gray-700 mb-1">제목</label>
+                    <input type="text" id="review-title" name="review-title" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="리뷰 제목을 입력해주세요" required>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">별점</label>
+                    <div class="star-rating">
+                        <input type="radio" id="star5" name="rating" value="5" required><label for="star5" class="ri-star-fill"></label>
+                        <input type="radio" id="star4" name="rating" value="4"><label for="star4" class="ri-star-fill"></label>
+                        <input type="radio" id="star3" name="rating" value="3"><label for="star3" class="ri-star-fill"></label>
+                        <input type="radio" id="star2" name="rating" value="2"><label for="star2" class="ri-star-fill"></label>
+                        <input type="radio" id="star1" name="rating" value="1"><label for="star1" class="ri-star-fill"></label>
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="review-content" class="block text-sm font-medium text-gray-700 mb-1">리뷰 내용</label>
+                    <textarea id="review-content" name="review-content" rows="6" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="자세한 리뷰를 남겨주세요." required></textarea>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="bg-primary text-white px-8 py-3 rounded-button font-bold hover:bg-opacity-90 transition-all whitespace-nowrap">
+                        리뷰 제출하기
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const reviewForm = document.getElementById('review-form');
+            if (reviewForm) {
+                reviewForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('reviewer-name');
+                    const title = document.getElementById('review-title');
+                    const content = document.getElementById('review-content');
+                    const rating = document.querySelector('input[name="rating"]:checked');
+
+                    let isValid = true;
+                    let errorMessage = [];
+
+                    if (!name.value.trim()) {
+                        errorMessage.push('이름을 입력해주세요.');
+                        name.focus();
+                        isValid = false;
+                    }
+                    if (!title.value.trim()) {
+                        errorMessage.push('제목을 입력해주세요.');
+                        if (isValid) title.focus();
+                        isValid = false;
+                    }
+                    if (!rating) {
+                        errorMessage.push('별점을 선택해주세요.');
+                        const firstStarInput = document.querySelector('.star-rating input[name="rating"]');
+                        if (firstStarInput) firstStarInput.focus();
+                        isValid = false;
+                    }
+                    if (!content.value.trim()) {
+                        errorMessage.push('리뷰 내용을 입력해주세요.');
+                        if (isValid) content.focus();
+                        isValid = false;
+                    }
+
+                    if (!isValid) {
+                        alert(errorMessage.join('\n'));
+                    } else {
+                        // [Google Sheets 연동 필요]
+                        // 클라이언트(브라우저)에서 Google Sheet로 직접 데이터 전송은 보안 및 CORS 정책으로 인해 제한됩니다.
+                        // Google Apps Script, Firebase, 또는 백엔드 서버(Node.js, Python 등)를 통해 API를 구축하여 연동해야 합니다.
+                        // 예시:
+                        // fetch('YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL', {
+                        //     method: 'POST',
+                        //     mode: 'no-cors', // Apps Script로 보낼 때는 no-cors 모드 사용
+                        //     headers: {
+                        //         'Content-Type': 'application/json',
+                        //     },
+                        //     body: JSON.stringify({
+                        //         name: name.value,
+                        //         title: title.value,
+                        //         rating: rating.value,
+                        //         content: content.value,
+                        //         type: 'review'
+                        //     }),
+                        // })
+                        // .then(response => {
+                        //     alert('리뷰가 성공적으로 제출되었습니다. 소중한 의견 감사합니다!');
+                        //     reviewForm.reset();
+                        //     window.location.href = '호호참숯불닭발-홈피.html#review';
+                        // })
+                        // .catch(error => {
+                        //     console.error('Error:', error);
+                        //     alert('리뷰 제출 중 오류가 발생했습니다. 다시 시도해주세요.');
+                        // });
+
+                        console.log('리뷰 데이터:', {
+                            name: name.value,
+                            title: title.value,
+                            rating: rating ? rating.value : '0',
+                            content: content.value
+                        });
+                        alert('리뷰가 성공적으로 제출되었습니다. 소중한 의견 감사합니다!');
+                        reviewForm.reset();
+                        window.location.href = '호호참숯불닭발-홈피.html#review';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
