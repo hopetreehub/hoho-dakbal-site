@@ -58,9 +58,10 @@
             background-size: cover;
             background-position: center;
         }
-        .hero-section .overlay {
+        /* 이 .hero-section .overlay CSS는 현재 HTML에서 사용되지 않습니다. */
+        /* .hero-section .overlay {
             background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.3) 100%);
-        }
+        } */
     </style>
 </head>
 <body>
@@ -103,7 +104,8 @@
     <!-- 히어로 섹션 -->
     <section class="relative w-full overflow-hidden hero-section">
         <!-- 배경 이미지 URL을 Cloudinary URL로 변경하세요. -->
-        <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
+        <!-- bg-gradient-to-r from-white/70 via-white/50 to-transparent 로 투명도를 조절했습니다. -->
+        <div class="absolute inset-0 bg-gradient-to-r from-white/70 via-white/50 to-transparent"></div>
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
             <div class="w-full md:w-1/2">
                 <!-- 제목 수정 가능 -->
@@ -143,7 +145,7 @@
                 <!-- 인기 메뉴 1 (통뼈국물닭발): Cloudinary URL로 변경하세요. -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm transition-all hover:shadow-md">
                     <div class="h-56 overflow-hidden">
-                        <img src="https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/menu_bone_soup.jpg" alt="통뼈국물닭발" class="w-full h-full object-cover object-top">
+                        <img src="https://res.cloudinary.com/dc7yeqa9m/image/upload/v1748533938/menu_bone_soup_zlimns.png" alt="통뼈국물닭발" class="w-full h-full object-cover object-top">
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-3">
@@ -167,7 +169,7 @@
                 <!-- 인기 메뉴 2 (무뼈국물닭발): Cloudinary URL로 변경하세요. -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm transition-all hover:shadow-md">
                     <div class="h-56 overflow-hidden">
-                        <img src="https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/menu_boneless_soup.jpg" alt="무뼈국물닭발" class="w-full h-full object-cover object-top">
+                        <img src="https://res.cloudinary.com/dc7yeqa9m/image/upload/v1748533939/menu_boneless_soup_ifakvr.png" alt="무뼈국물닭발" class="w-full h-full object-cover object-top">
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-3">
@@ -191,7 +193,7 @@
                 <!-- 인기 메뉴 3 (무뼈참숯양념닭발): Cloudinary URL로 변경하세요. -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm transition-all hover:shadow-md">
                     <div class="h-56 overflow-hidden">
-                        <img src="https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/menu_boneless_charcoal.jpg" alt="무뼈참숯양념닭발" class="w-full h-full object-cover object-top">
+                        <img src="https://res.cloudinary.com/dc7yeqa9m/image/upload/v1748533940/menu_boneless_charcoal_aocdqq.png" alt="무뼈참숯양념닭발" class="w-full h-full object-cover object-top">
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-3">
@@ -239,7 +241,7 @@
                     <!-- 대표 메뉴 1: Cloudinary URL로 변경하세요. -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/menu_bone_soup.jpg" alt="통뼈국물닭발" class="w-full h-full object-cover">
+                            <img src="https://res.cloudinary.com/dc7yeqa9m/image/upload/v1748533938/menu_bone_soup_zlimns.png" alt="통뼈국물닭발" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-bold text-gray-900 mb-2">통뼈국물닭발 (2인분)</h4>
                         <p class="text-gray-600 text-sm mb-3">단품메뉴 2인분부터 주문 가능</p>
@@ -248,7 +250,7 @@
                     <!-- 대표 메뉴 2: Cloudinary URL로 변경하세요. -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/menu_boneless_soup.jpg" alt="무뼈국물닭발" class="w-full h-full object-cover">
+                            <img src="https://res.cloudinary.com/dc7yeqa9m/image/upload/v1748533939/menu_boneless_soup_ifakvr.png" alt="무뼈국물닭발" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-bold text-gray-900 mb-2">무뼈국물닭발 (2인분)</h4>
                         <p class="text-gray-600 text-sm mb-3">단품메뉴 주문 시 2인분 이상 주문 가능</p>
@@ -257,7 +259,7 @@
                     <!-- 대표 메뉴 3: Cloudinary URL로 변경하세요. -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/menu_boneless_charcoal.jpg" alt="무뼈참숯양념닭발" class="w-full h-full object-cover">
+                            <img src="https://res.cloudinary.com/dc7yeqa9m/image/upload/v1748533940/menu_boneless_charcoal_aocdqq.png" alt="무뼈참숯양념닭발" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-bold text-gray-900 mb-2">무뼈참숯양념닭발 (2인분)</h4>
                         <p class="text-gray-600 text-sm mb-3">단품메뉴 주문 시 2인분 이상 주문 가능</p>
