@@ -43,12 +43,14 @@
             display: inline-block;
             width: 20px;
             height: 20px;
-            margin-right: 8px;
+            /* margin-right: 8px; 이전 값. 텍스트와 간격 조정 */
+            margin-right: 4px; /* 간격 축소 */
             border-radius: 9999px; /* full rounded */
             border: 2px solid #D1D5DB; /* gray-300 */
             transition: all 0.2s ease-in-out;
             position: relative;
-            vertical-align: middle;
+            vertical-align: middle; /* 텍스트와 세로 정렬 */
+            flex-shrink: 0; /* 라디오 버튼 자체의 크기 고정 */
         }
         input[type="radio"]:checked + label span:first-child {
             border-color: var(--tw-colors-primary);
@@ -69,14 +71,17 @@
         .custom-checkbox {
             position: relative;
             cursor: pointer;
+            display: flex; /* 내부 요소들을 flex로 정렬 */
+            align-items: center; /* 체크박스와 텍스트를 세로 중앙 정렬 */
         }
         .custom-checkbox input {
             position: absolute;
             opacity: 0;
             cursor: pointer;
+            z-index: 1; /* 클릭 영역 확보 */
         }
         .custom-checkbox .checkmark {
-            position: absolute;
+            position: relative; /* input 위에 배치하기 위함 */
             top: 0;
             left: 0;
             height: 20px;
@@ -84,6 +89,7 @@
             background-color: #fff;
             border: 2px solid var(--tw-colors-primary);
             border-radius: 4px;
+            flex-shrink: 0; /* 체크박스 자체의 크기 고정 */
         }
         .custom-checkbox input:checked ~ .checkmark:after {
             content: "";
@@ -96,6 +102,9 @@
             border: solid var(--tw-colors-primary);
             border-width: 0 2px 2px 0;
             transform: rotate(45deg);
+        }
+        .custom-checkbox span:last-child {
+            margin-left: 8px; /* 텍스트와 체크박스 간격 조정 */
         }
     </style>
 </head>
@@ -129,6 +138,7 @@
                     <!-- 제목 수정 가능 -->
                     <h3 class="text-2xl font-semibold mb-6">배달 주문 정보</h3>
                     <!-- Netlify Forms 설정: name="order-form", data-netlify="true", netlify-honeypot="bot-field" 추가 -->
+                    <!-- action="/호호참숯불닭발-홈피.html#menu"를 사용하여 제출 후 메인 페이지의 메뉴 섹션으로 리다이렉트 -->
                     <form id="order-form" name="order-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/호호참숯불닭발-홈피.html#menu" class="space-y-6">
                         <!-- Netlify Forms 스팸 방지 필드 (숨김) -->
                         <p class="hidden">
@@ -180,8 +190,8 @@
                             <label class="custom-checkbox">
                                 <input type="checkbox" name="privacyConsent" id="agree-terms" required>
                                 <span class="checkmark"></span>
+                                <span class="text-sm text-gray-600">개인정보 수집 및 이용에 동의합니다.</span>
                             </label>
-                            <span class="ml-7 text-sm text-gray-600">개인정보 수집 및 이용에 동의합니다.</span>
                         </div>
                         <div class="text-center">
                             <button type="submit" class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">주문하기</button>
