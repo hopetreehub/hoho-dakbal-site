@@ -53,8 +53,8 @@
         }
 
         .hero-section {
-            /* 히어로 섹션 배경 이미지 URL을 여기에 삽입하세요. (예: './images/hero_background.jpg') */
-            background-image: url('./images/hero_background.jpg');
+            /* 히어로 섹션 배경 이미지 URL을 Cloudinary URL로 변경하세요. */
+            background-image: url('https://res.cloudinary.com/dc7yeqa9m/image/upload/v1748534893/hero_background_dirxsu.png'); 
             background-size: cover;
             background-position: center;
         }
@@ -102,7 +102,7 @@
 
     <!-- 히어로 섹션 -->
     <section class="relative w-full overflow-hidden hero-section">
-        <!-- 배경 이미지 URL을 여기에 삽입하세요. (예: './images/hero_background.jpg') -->
+        <!-- 배경 이미지 URL을 Cloudinary URL로 변경하세요. -->
         <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
             <div class="w-full md:w-1/2">
@@ -140,10 +140,10 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- [데이터베이스 연동 필요] 메뉴 아이템 목록을 동적으로 로드하는 부분 (인기 메뉴) -->
-                <!-- 인기 메뉴 1 (통뼈국물닭발): 이미지 URL을 `src` 속성에 삽입하세요. -->
+                <!-- 인기 메뉴 1 (통뼈국물닭발): Cloudinary URL로 변경하세요. -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm transition-all hover:shadow-md">
                     <div class="h-56 overflow-hidden">
-                        <img src="./images/menu_bone_soup.jpg" alt="통뼈국물닭발" class="w-full h-full object-cover object-top">
+                        <img src="https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/menu_bone_soup.jpg" alt="통뼈국물닭발" class="w-full h-full object-cover object-top">
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-3">
@@ -164,10 +164,10 @@
                     </div>
                 </div>
                 
-                <!-- 인기 메뉴 2 (무뼈국물닭발): 이미지 URL을 `src` 속성에 삽입하세요. -->
+                <!-- 인기 메뉴 2 (무뼈국물닭발): Cloudinary URL로 변경하세요. -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm transition-all hover:shadow-md">
                     <div class="h-56 overflow-hidden">
-                        <img src="./images/menu_boneless_soup.jpg" alt="무뼈국물닭발" class="w-full h-full object-cover object-top">
+                        <img src="https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/menu_boneless_soup.jpg" alt="무뼈국물닭발" class="w-full h-full object-cover object-top">
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-3">
@@ -188,10 +188,10 @@
                     </div>
                 </div>
                 
-                <!-- 인기 메뉴 3 (무뼈참숯양념닭발): 이미지 URL을 `src` 속성에 삽입하세요. -->
+                <!-- 인기 메뉴 3 (무뼈참숯양념닭발): Cloudinary URL로 변경하세요. -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm transition-all hover:shadow-md">
                     <div class="h-56 overflow-hidden">
-                        <img src="./images/menu_boneless_charcoal.jpg" alt="무뼈참숯양념닭발" class="w-full h-full object-cover object-top">
+                        <img src="https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/menu_boneless_charcoal.jpg" alt="무뼈참숯양념닭발" class="w-full h-full object-cover object-top">
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-3">
@@ -236,28 +236,28 @@
             <div class="mb-12">
                 <h3 class="text-2xl font-bold text-gray-900 mb-6 border-b-2 border-primary pb-3">대표 메뉴</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- 대표 메뉴 1: 이미지 URL을 `src` 속성에 삽입하세요. -->
+                    <!-- 대표 메뉴 1: Cloudinary URL로 변경하세요. -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="./images/menu_bone_soup.jpg" alt="통뼈국물닭발" class="w-full h-full object-cover">
+                            <img src="https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/menu_bone_soup.jpg" alt="통뼈국물닭발" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-bold text-gray-900 mb-2">통뼈국물닭발 (2인분)</h4>
                         <p class="text-gray-600 text-sm mb-3">단품메뉴 2인분부터 주문 가능</p>
                         <span class="text-primary font-bold text-lg">22,000원</span>
                     </div>
-                    <!-- 대표 메뉴 2: 이미지 URL을 `src` 속성에 삽입하세요. -->
+                    <!-- 대표 메뉴 2: Cloudinary URL로 변경하세요. -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="./images/menu_boneless_soup.jpg" alt="무뼈국물닭발" class="w-full h-full object-cover">
+                            <img src="https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/menu_boneless_soup.jpg" alt="무뼈국물닭발" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-bold text-gray-900 mb-2">무뼈국물닭발 (2인분)</h4>
                         <p class="text-gray-600 text-sm mb-3">단품메뉴 주문 시 2인분 이상 주문 가능</p>
                         <span class="text-primary font-bold text-lg">22,000원</span>
                     </div>
-                    <!-- 대표 메뉴 3: 이미지 URL을 `src` 속성에 삽입하세요. -->
+                    <!-- 대표 메뉴 3: Cloudinary URL로 변경하세요. -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="./images/menu_boneless_charcoal.jpg" alt="무뼈참숯양념닭발" class="w-full h-full object-cover">
+                            <img src="https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/menu_boneless_charcoal.jpg" alt="무뼈참숯양념닭발" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-bold text-gray-900 mb-2">무뼈참숯양념닭발 (2인분)</h4>
                         <p class="text-gray-600 text-sm mb-3">단품메뉴 주문 시 2인분 이상 주문 가능</p>
@@ -270,19 +270,19 @@
             <div class="mb-12">
                 <h3 class="text-2xl font-bold text-gray-900 mb-6 border-b-2 border-primary pb-3">세트 메뉴</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- 세트 메뉴 1: 이미지 URL을 `src` 속성에 삽입하세요. -->
+                    <!-- 세트 메뉴 1: Cloudinary URL로 변경하세요. -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="./images/set_2person.jpg" alt="2인분 세트" class="w-full h-full object-cover">
+                            <img src="https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/set_2person.jpg" alt="2인분 세트" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-bold text-gray-900 mb-2">2인분 세트</h4>
                         <p class="text-gray-600 text-sm mb-3">닭발or등갈비 2인분 + 계란찜, 날치알주먹밥, 음료(콜라, 사이다, 환타 랜덤 1개), 동치미</p>
                         <span class="text-primary font-bold text-lg">30,000원</span>
                     </div>
-                    <!-- 세트 메뉴 2: 이미지 URL을 `src` 속성에 삽입하세요. -->
+                    <!-- 세트 메뉴 2: Cloudinary URL로 변경하세요. -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="./images/set_3person.jpg" alt="3인분 세트" class="w-full h-full object-cover">
+                            <img src="https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/set_3person.jpg" alt="3인분 세트" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-bold text-gray-900 mb-2">3인분 세트</h4>
                         <p class="text-gray-600 text-sm mb-3">닭발or등갈비 3인분 + 계란찜, 날치알주먹밥, 음료(콜라, 사이다, 환타 랜덤 1개), 동치미</p>
@@ -295,43 +295,42 @@
             <div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-6 border-b-2 border-primary pb-3">사이드 메뉴</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- 사이드 메뉴 1: 이미지 URL을 `src` 속성에 삽입하세요. -->
+                    <!-- 사이드 메뉴 1: Cloudinary URL로 변경하세요. -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="./images/side_egg_custard.jpg" alt="계란찜" class="w-full h-full object-cover">
+                            <img src="https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/side_egg_custard.jpg" alt="계란찜" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-bold text-gray-900 mb-2">계란찜</h4>
                         <span class="text-primary font-bold text-lg">4,000원</span>
                     </div>
-                    <!-- 사이드 메뉴 2: 이미지 URL을 `src` 속성에 삽입하세요. -->
+                    <!-- 사이드 메뉴 2: Cloudinary URL로 변경하세요. -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="./images/side_rice_balls.jpg" alt="날치알주먹밥" class="w-full h-full object-cover">
+                            <img src="https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/side_rice_balls.jpg" alt="날치알주먹밥" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-bold text-gray-900 mb-2">날치알주먹밥</h4>
                         <span class="text-primary font-bold text-lg">4,000원</span>
                     </div>
-                    <!-- 사이드 메뉴 3: 이미지 URL을 `src` 속성에 삽입하세요. -->
+                    <!-- 사이드 메뉴 3: Cloudinary URL로 변경하세요. -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="./images/side_janchi_guksu.jpg" alt="잔치국수" class="w-full h-full object-cover">
+                            <img src="https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/side_janchi_guksu.jpg" alt="잔치국수" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-bold text-gray-900 mb-2">잔치국수 (냉/온 선택)</h4>
                         <span class="text-primary font-bold text-lg">7,000원</span>
                     </div>
-                    <!-- 사이드 메뉴 4 (도토리묵사발은 제거됨) -->
-                    <!-- 사이드 메뉴 5: 이미지 URL을 `src` 속성에 삽입하세요. -->
+                    <!-- 사이드 메뉴 5: Cloudinary URL로 변경하세요. -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="./images/side_rice.jpg" alt="공기밥" class="w-full h-full object-cover">
+                            <img src="https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/side_rice.jpg" alt="공기밥" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-bold text-gray-900 mb-2">공기밥</h4>
                         <span class="text-primary font-bold text-lg">2,000원</span>
                     </div>
-                    <!-- 사이드 메뉴 6 (음료수 통합): 이미지 URL을 `src` 속성에 삽입하세요. (예: './images/side_drink_combined.jpg') -->
+                    <!-- 사이드 메뉴 6 (음료수 통합): Cloudinary URL로 변경하세요. -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="./images/side_drink_combined.jpg" alt="음료수" class="w-full h-full object-cover">
+                            <img src="https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/side_drink_combined.jpg" alt="음료수" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-bold text-gray-900 mb-2">음료수 (콜라, 사이다, 환타 중 선택)</h4>
                         <span class="text-primary font-bold text-lg">2,000원</span>
@@ -455,8 +454,8 @@
                     </div>
                 </div>
                 <div class="h-[400px] rounded-lg overflow-hidden shadow-sm relative">
-                    <!-- 지도 이미지 또는 임베드 수정 가능 (예: './images/map_placeholder.png') -->
-                    <div class="absolute inset-0" style="background-image: url('./images/map_placeholder.png'); background-size: cover; background-position: center;"></div>
+                    <!-- 지도 이미지 또는 임베드 수정 가능 (Cloudinary URL로 변경하세요.) -->
+                    <div class="absolute inset-0" style="background-image: url('https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/map_placeholder.png'); background-size: cover; background-position: center;"></div>
                     <div class="absolute top-4 right-4 bg-white p-3 rounded-lg shadow-md">
                         <div class="flex space-x-2">
                             <button class="w-8 h-8 bg-gray-100 rounded flex items-center justify-center hover:bg-gray-200">
