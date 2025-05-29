@@ -84,7 +84,7 @@
             </div>
             
             <!-- Netlify Forms 설정: name="review-form", data-netlify="true", netlify-honeypot="bot-field" 추가 -->
-            <form id="review-form" name="review-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
+            <form id="review-form" name="review-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/호호참숯불닭발-홈피.html#review" class="space-y-6">
                 <!-- Netlify Forms 스팸 방지 필드 (숨김) -->
                 <p class="hidden">
                     <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
@@ -168,12 +168,7 @@
                         // Netlify Forms는 data-netlify="true" 속성으로 자동 처리됩니다.
                         // 클라이언트 유효성 검사 후, 폼을 수동으로 제출합니다.
                         alert('리뷰가 성공적으로 제출되었습니다. 소중한 의견 감사합니다!');
-                        e.target.submit(); // 폼을 Netlify Forms로 제출
-                        // 폼 제출 후 메인 페이지의 리뷰 섹션으로 리디렉트
-                        // Netlify Forms가 리다이렉트 처리를 맡기 때문에, 
-                        // 다음 줄은 Netlify forms "success" 페이지 리다이렉트 설정에 따라 작동합니다.
-                        // 또는 폼에 action="/success-page"를 추가하고 Netlify에서 해당 페이지를 생성할 수 있습니다.
-                        // window.location.href = '호호참숯불닭발-홈피.html#review'; 
+                        e.target.submit(); // 폼을 Netlify Forms로 제출하고, action 속성으로 리다이렉트
                     }
                 });
             }
