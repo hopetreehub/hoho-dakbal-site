@@ -21,7 +21,7 @@
                         'lg': '16px',
                         'xl': '20px',
                         '2xl': '24px',
-                        '3xl': '3xl', // 수정: 3xl 대신 32px 등 실제 값으로 설정
+                        '3xl': '32px', 
                         'full': '9999px',
                         'button': '8px'
                     }
@@ -83,20 +83,21 @@
                 <p class="text-gray-600">호호참숯불닭발에 대한 소중한 의견을 남겨주세요!</p>
             </div>
             
-            <form id="review-form" class="space-y-6">
-                <!-- [데이터베이스 연동 필요] 리뷰 데이터 저장 
-                     클라이언트(브라우저)에서 Google Sheet로 직접 데이터 전송은 보안 및 CORS 정책으로 인해 제한됩니다.
-                     Google Apps Script, Firebase, 또는 백엔드 서버(Node.js, Python 등)를 통해 API를 구축하여 연동해야 합니다.
-                     폼 제출 시 서버로 데이터를 보내는 코드를 여기에 추가해야 합니다.
-                -->
+            <!-- Netlify Forms 설정: name="review-form", data-netlify="true", netlify-honeypot="bot-field" 추가 -->
+            <form id="review-form" name="review-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
+                <!-- Netlify Forms 스팸 방지 필드 (숨김) -->
+                <p class="hidden">
+                    <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+                </p>
+
                 <div>
                     <label for="reviewer-name" class="block text-sm font-medium text-gray-700 mb-1">이름</label>
-                    <input type="text" id="reviewer-name" name="reviewer-name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="이름을 입력해주세요" required>
+                    <input type="text" id="reviewer-name" name="reviewerName" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="이름을 입력해주세요" required>
                 </div>
 
                 <div>
                     <label for="review-title" class="block text-sm font-medium text-gray-700 mb-1">제목</label>
-                    <input type="text" id="review-title" name="review-title" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="리뷰 제목을 입력해주세요" required>
+                    <input type="text" id="review-title" name="reviewTitle" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="리뷰 제목을 입력해주세요" required>
                 </div>
 
                 <div>
@@ -112,7 +113,7 @@
                 
                 <div>
                     <label for="review-content" class="block text-sm font-medium text-gray-700 mb-1">리뷰 내용</label>
-                    <textarea id="review-content" name="review-content" rows="6" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="자세한 리뷰를 남겨주세요." required></textarea>
+                    <textarea id="review-content" name="reviewContent" rows="6" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="자세한 리뷰를 남겨주세요." required></textarea>
                 </div>
 
                 <div class="text-center">
@@ -129,7 +130,7 @@
             const reviewForm = document.getElementById('review-form');
             if (reviewForm) {
                 reviewForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
+                    e.preventDefault(); // 클라이언트 유효성 검사를 위해 기본 제출 동작 방지
                     
                     const name = document.getElementById('reviewer-name');
                     const title = document.getElementById('review-title');
@@ -164,43 +165,15 @@
                     if (!isValid) {
                         alert(errorMessage.join('\n'));
                     } else {
-                        // [Google Sheets 연동 필요]
-                        // 클라이언트(브라우저)에서 Google Sheet로 직접 데이터 전송은 보안 및 CORS 정책으로 인해 제한됩니다.
-                        // Google Apps Script, Firebase, 또는 백엔드 서버(Node.js, Python 등)를 통해 API를 구축하여 연동해야 합니다.
-                        // 예시:
-                        // fetch('YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL', {
-                        //     method: 'POST',
-                        //     mode: 'no-cors', // Apps Script로 보낼 때는 no-cors 모드 사용
-                        //     headers: {
-                        //         'Content-Type': 'application/json',
-                        //     },
-                        //     body: JSON.stringify({
-                        //         name: name.value,
-                        //         title: title.value,
-                        //         rating: rating.value,
-                        //         content: content.value,
-                        //         type: 'review'
-                        //     }),
-                        // })
-                        // .then(response => {
-                        //     alert('리뷰가 성공적으로 제출되었습니다. 소중한 의견 감사합니다!');
-                        //     reviewForm.reset();
-                        //     window.location.href = '호호참숯불닭발-홈피.html#review';
-                        // })
-                        // .catch(error => {
-                        //     console.error('Error:', error);
-                        //     alert('리뷰 제출 중 오류가 발생했습니다. 다시 시도해주세요.');
-                        // });
-
-                        console.log('리뷰 데이터:', {
-                            name: name.value,
-                            title: title.value,
-                            rating: rating ? rating.value : '0',
-                            content: content.value
-                        });
+                        // Netlify Forms는 data-netlify="true" 속성으로 자동 처리됩니다.
+                        // 클라이언트 유효성 검사 후, 폼을 수동으로 제출합니다.
                         alert('리뷰가 성공적으로 제출되었습니다. 소중한 의견 감사합니다!');
-                        reviewForm.reset();
-                        window.location.href = '호호참숯불닭발-홈피.html#review';
+                        e.target.submit(); // 폼을 Netlify Forms로 제출
+                        // 폼 제출 후 메인 페이지의 리뷰 섹션으로 리디렉트
+                        // Netlify Forms가 리다이렉트 처리를 맡기 때문에, 
+                        // 다음 줄은 Netlify forms "success" 페이지 리다이렉트 설정에 따라 작동합니다.
+                        // 또는 폼에 action="/success-page"를 추가하고 Netlify에서 해당 페이지를 생성할 수 있습니다.
+                        // window.location.href = '호호참숯불닭발-홈피.html#review'; 
                     }
                 });
             }
