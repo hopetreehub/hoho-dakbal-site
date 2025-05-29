@@ -39,17 +39,20 @@
             background-color: #f8f8f8;
         }
         /* 커스텀 라디오 버튼 스타일 */
+        input[type="radio"] + label {
+            display: flex; /* 라벨 자체를 flex 컨테이너로 */
+            align-items: center; /* 아이콘과 텍스트 세로 중앙 정렬 */
+            cursor: pointer;
+        }
         input[type="radio"] + label span:first-child {
             display: inline-block;
             width: 20px;
             height: 20px;
-            /* margin-right: 8px; 이전 값. 텍스트와 간격 조정 */
-            margin-right: 4px; /* 간격 축소 */
+            margin-right: 8px; /* 아이콘과 텍스트 간격 조정 */
             border-radius: 9999px; /* full rounded */
             border: 2px solid #D1D5DB; /* gray-300 */
             transition: all 0.2s ease-in-out;
             position: relative;
-            vertical-align: middle; /* 텍스트와 세로 정렬 */
             flex-shrink: 0; /* 라디오 버튼 자체의 크기 고정 */
         }
         input[type="radio"]:checked + label span:first-child {
@@ -112,13 +115,13 @@
     <!-- 상단 바 (간소화) -->
     <header class="bg-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="호호참숯불닭발-홈피.html" class="flex items-center text-gray-900">
+            <a href="index.html" class="flex items-center text-gray-900">
                 <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
                     <span class="text-white font-bold">호호</span>
                 </div>
                 <h1 class="ml-2 text-xl font-bold">호호참숯불닭발</h1>
             </a>
-            <a href="호호참숯불닭발-홈피.html#menu" class="text-gray-700 hover:text-primary font-medium">
+            <a href="index.html#menu" class="text-gray-700 hover:text-primary font-medium">
                 메뉴 목록으로 돌아가기
             </a>
         </div>
@@ -138,8 +141,8 @@
                     <!-- 제목 수정 가능 -->
                     <h3 class="text-2xl font-semibold mb-6">배달 주문 정보</h3>
                     <!-- Netlify Forms 설정: name="order-form", data-netlify="true", netlify-honeypot="bot-field" 추가 -->
-                    <!-- action="/호호참숯불닭발-홈피.html#menu"를 사용하여 제출 후 메인 페이지의 메뉴 섹션으로 리다이렉트 -->
-                    <form id="order-form" name="order-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/호호참숯불닭발-홈피.html#menu" class="space-y-6">
+                    <!-- action="/index.html#menu"를 사용하여 제출 후 메인 페이지의 메뉴 섹션으로 리다이렉트 -->
+                    <form id="order-form" name="order-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/index.html#menu" class="space-y-6">
                         <!-- Netlify Forms 스팸 방지 필드 (숨김) -->
                         <p class="hidden">
                             <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
@@ -168,20 +171,20 @@
                             <div class="space-y-2">
                                 <div class="flex items-center">
                                     <input type="radio" id="payment-card" name="paymentMethod" value="신용카드" required>
-                                    <label for="payment-card" class="flex items-center cursor-pointer">
-                                        <span>신용카드</span>
+                                    <label for="payment-card">
+                                        <span></span>신용카드
                                     </label>
                                 </div>
                                 <div class="flex items-center">
                                     <input type="radio" id="payment-bank" name="paymentMethod" value="계좌이체">
-                                    <label for="payment-bank" class="flex items-center cursor-pointer">
-                                        <span>계좌이체</span>
+                                    <label for="payment-bank">
+                                        <span></span>계좌이체
                                     </label>
                                 </div>
                                 <div class="flex items-center">
                                     <input type="radio" id="payment-cash" name="paymentMethod" value="현금결제">
-                                    <label for="payment-cash" class="flex items-center cursor-pointer">
-                                        <span>현금결제</span>
+                                    <label for="payment-cash">
+                                        <span></span>현금결제
                                     </label>
                                 </div>
                             </div>
@@ -207,6 +210,15 @@
         document.addEventListener('DOMContentLoaded', function() {
             const radioButtons = document.querySelectorAll('input[type="radio"][name="paymentMethod"]');
             radioButtons.forEach(radio => {
+                // 라디오 버튼의 텍스트를 감싸는 span 태그를 생성하고 이동
+                const label = radio.nextElementSibling; // 현재 라디오 버튼 바로 다음의 label
+                if (label && label.tagName === 'LABEL') {
+                    const existingText = label.childNodes[1]; // 텍스트 노드 또는 다음 요소
+                    const spanForRadioIcon = document.createElement('span'); // 라디오 아이콘용 span
+                    
+                    label.insertBefore(spanForRadioIcon, existingText); // 아이콘 span을 텍스트 앞에 삽입
+                }
+
                 radio.addEventListener('change', function() {
                     document.querySelectorAll(`input[name="${this.name}"]`).forEach(r => {
                         const span = r.nextElementSibling.querySelector('span:first-child');

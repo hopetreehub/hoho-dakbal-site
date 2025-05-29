@@ -53,8 +53,8 @@
         }
 
         .hero-section {
-            /* 히어로 섹션 배경 이미지 URL을 여기에 삽입하세요. */
-            background-image: url('https://readdy.ai/api/search-image?query=Traditional%20Korean%20spicy%20chicken%20feet%20dish%20with%20charcoal%20grill%20marks%2C%20served%20on%20a%20black%20plate%20with%20side%20dishes%2C%20atmospheric%20restaurant%20lighting%2C%20steam%20rising%2C%20high-end%20food%20photography%2C%20dark%20moody%20background%20with%20subtle%20red%20accents%2C%20professional%20food%20styling&width=1920&height=1080&seq=1&orientation=landscape');
+            /* 히어로 섹션 배경 이미지 URL을 여기에 삽입하세요. (예: './images/hero_background.jpg') */
+            background-image: url('./images/hero_background.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -82,11 +82,11 @@
                 </div>
                 <!-- 데스크탑 메뉴 -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#" class="text-gray-700 hover:text-primary font-medium">홈</a>
-                    <a href="#menu" class="text-gray-700 hover:text-primary font-medium">메뉴</a>
-                    <a href="#youtube-story" class="text-gray-700 hover:text-primary font-medium">유튜브</a>
-                    <a href="#location" class="text-gray-700 hover:text-primary font-medium">매장안내</a>
-                    <a href="#review" class="text-gray-700 hover:text-primary font-medium">리뷰</a>
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium">홈</a>
+                    <a href="index.html#menu" class="text-gray-700 hover:text-primary font-medium">메뉴</a>
+                    <a href="index.html#youtube-story" class="text-gray-700 hover:text-primary font-medium">유튜브</a>
+                    <a href="index.html#location" class="text-gray-700 hover:text-primary font-medium">매장안내</a>
+                    <a href="index.html#review" class="text-gray-700 hover:text-primary font-medium">리뷰</a>
                     <!-- 주문하기 버튼은 order-form.html 페이지로 이동 -->
                     <a href="order-form.html" class="bg-primary text-white px-6 py-2 rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap text-center">주문하기</a>
                 </div>
@@ -102,7 +102,7 @@
 
     <!-- 히어로 섹션 -->
     <section class="relative w-full overflow-hidden hero-section">
-        <!-- 배경 이미지 URL을 여기에 삽입하세요. (CSS style 속성에 직접 삽입) -->
+        <!-- 배경 이미지 URL을 여기에 삽입하세요. (예: './images/hero_background.jpg') -->
         <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
             <div class="w-full md:w-1/2">
@@ -120,16 +120,13 @@
                     <a href="order-form.html" class="bg-primary text-white px-8 py-3 rounded-button font-bold hover:bg-opacity-90 transition-all whitespace-nowrap text-center">
                         지금 주문하기
                     </a>
-                    <a href="#menu" class="bg-white border-2 border-primary text-primary px-8 py-3 rounded-button font-bold hover:bg-primary/5 transition-all whitespace-nowrap text-center">
+                    <a href="index.html#menu" class="bg-white border-2 border-primary text-primary px-8 py-3 rounded-button font-bold hover:bg-primary/5 transition-all whitespace-nowrap text-center">
                         메뉴 보기
                     </a>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- 호호참숯불닭발의 특별함 섹션 -->
-    <!-- 이 섹션은 요청에 따라 제거되었습니다. -->
 
     <!-- 인기 메뉴 섹션 -->
     <section id="menu" class="py-20">
@@ -141,23 +138,47 @@
                 <p class="text-gray-600 max-w-3xl mx-auto">고객들이 가장 사랑하는 호호참숯불닭발의 인기 메뉴를 소개합니다</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- [데이터베이스 연동 필요] 메뉴 아이템 목록을 동적으로 로드하는 부분 (인기 메뉴) -->
-                <!-- 메뉴 아이템 1: 이미지 URL을 `src` 속성에 삽입하세요. -->
+                <!-- 인기 메뉴 1 (통뼈국물닭발): 이미지 URL을 `src` 속성에 삽입하세요. -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm transition-all hover:shadow-md">
                     <div class="h-56 overflow-hidden">
-                        <img src="https://readdy.ai/api/search-image?query=spicy%20chicken%20feet%20dish%20with%20red%20sauce%2C%20Korean%20food%2C%20vibrant%20presentation%2C%20clean%20white%20background%2C%20appetizing%2C%20professional%20food%20photography%2C%20high-end%20restaurant%20style&width=500&height=400&seq=2&orientation=portrait" alt="매운 불닭발" class="w-full h-full object-cover object-top">
+                        <img src="./images/menu_bone_soup.jpg" alt="통뼈국물닭발" class="w-full h-full object-cover object-top">
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-3">
-                            <h3 class="text-lg font-bold text-gray-900">매운 불닭발</h3>
-                            <span class="text-primary font-bold">18,000원</span>
+                            <h3 class="text-lg font-bold text-gray-900">통뼈국물닭발 (2인분)</h3>
+                            <span class="text-primary font-bold">22,000원</span>
                         </div>
-                        <p class="text-gray-600 text-sm mb-4">화끈한 매운맛이 일품인 호호참숯불닭발의 시그니처 메뉴</p>
+                        <p class="text-gray-600 text-sm mb-4">단품메뉴 2인분부터 주문 가능</p>
                         <div class="flex items-center text-sm text-gray-500">
                             <div class="flex items-center mr-4">
                                 <i class="ri-fire-fill text-primary mr-1"></i>
                                 <span>매운맛 4단계</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="ri-heart-fill text-primary mr-1"></i>
+                                <span>인기도 98%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 인기 메뉴 2 (무뼈국물닭발): 이미지 URL을 `src` 속성에 삽입하세요. -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm transition-all hover:shadow-md">
+                    <div class="h-56 overflow-hidden">
+                        <img src="./images/menu_boneless_soup.jpg" alt="무뼈국물닭발" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-lg font-bold text-gray-900">무뼈국물닭발 (2인분)</h3>
+                            <span class="text-primary font-bold">22,000원</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">단품메뉴 주문 시 2인분 이상 주문 가능</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <div class="flex items-center mr-4">
+                                <i class="ri-fire-fill text-primary mr-1"></i>
+                                <span>매운맛 3단계</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="ri-heart-fill text-primary mr-1"></i>
@@ -167,41 +188,17 @@
                     </div>
                 </div>
                 
-                <!-- 메뉴 아이템 2: 이미지 URL을 `src` 속성에 삽입하세요. -->
+                <!-- 인기 메뉴 3 (무뼈참숯양념닭발): 이미지 URL을 `src` 속성에 삽입하세요. -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm transition-all hover:shadow-md">
                     <div class="h-56 overflow-hidden">
-                        <img src="https://readdy.ai/api/search-image?query=garlic%20soy%20sauce%20chicken%20feet%2C%20Korean%20food%2C%20dark%20brown%20sauce%2C%20clean%20white%20background%2C%20appetizing%2C%20professional%20food%20photography%2C%20high-end%20restaurant%20style&width=500&height=400&seq=3&orientation=portrait" alt="마늘간장 닭발" class="w-full h-full object-cover object-top">
+                        <img src="./images/menu_boneless_charcoal.jpg" alt="무뼈참숯양념닭발" class="w-full h-full object-cover object-top">
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-3">
-                            <h3 class="text-lg font-bold text-gray-900">마늘간장 닭발</h3>
-                            <span class="text-primary font-bold">17,000원</span>
+                            <h3 class="text-lg font-bold text-gray-900">무뼈참숯양념닭발 (2인분)</h3>
+                            <span class="text-primary font-bold">22,000원</span>
                         </div>
-                        <p class="text-gray-600 text-sm mb-4">달콤 짭짤한 간장 소스와 마늘의 풍미가 어우러진 인기 메뉴</p>
-                        <div class="flex items-center text-sm text-gray-500">
-                            <div class="flex items-center mr-4">
-                                <i class="ri-fire-fill text-primary mr-1"></i>
-                                <span>매운맛 2단계</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="ri-heart-fill text-primary mr-1"></i>
-                                <span>인기도 88%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 메뉴 아이템 3: 이미지 URL을 `src` 속성에 삽입하세요. -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-sm transition-all hover:shadow-md">
-                    <div class="h-56 overflow-hidden">
-                        <img src="https://readdy.ai/api/search-image?query=cheese%20chicken%20feet%2C%20Korean%20food%2C%20melted%20cheese%20topping%2C%20clean%20white%20background%2C%20appetizing%2C%20professional%20food%20photography%2C%20high-end%20restaurant%20style&width=500&height=400&seq=4&orientation=portrait" alt="치즈 닭발" class="w-full h-full object-cover object-top">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-3">
-                            <h3 class="text-lg font-bold text-gray-900">치즈 닭발</h3>
-                            <span class="text-primary font-bold">19,000원</span>
-                        </div>
-                        <p class="text-gray-600 text-sm mb-4">매콤한 닭발 위에 모짜렐라 치즈를 듬뿍 얹어 부드러움을 더한 메뉴</p>
+                        <p class="text-gray-600 text-sm mb-4">단품메뉴 주문 시 2인분 이상 주문 가능</p>
                         <div class="flex items-center text-sm text-gray-500">
                             <div class="flex items-center mr-4">
                                 <i class="ri-fire-fill text-primary mr-1"></i>
@@ -210,30 +207,6 @@
                             <div class="flex items-center">
                                 <i class="ri-heart-fill text-primary mr-1"></i>
                                 <span>인기도 92%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 메뉴 아이템 4: 이미지 URL을 `src` 속성에 삽입하세요. -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-sm transition-all hover:shadow-md">
-                    <div class="h-56 overflow-hidden">
-                        <img src="https://readdy.ai/api/search-image?query=sweet%20and%20sour%20chicken%20feet%2C%20Korean%20food%2C%20glossy%20red%20sauce%2C%20clean%20white%20background%2C%20appetizing%2C%20professional%20food%20photography%2C%20high-end%20restaurant%20style&width=500&height=400&seq=5&orientation=portrait" alt="양념 닭발" class="w-full h-full object-cover object-top">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-3">
-                            <h3 class="text-lg font-bold text-gray-900">양념 닭발</h3>
-                            <span class="text-primary font-bold">17,000원</span>
-                        </div>
-                        <p class="text-gray-600 text-sm mb-4">달콤 매콤한 특제 양념으로 맛을 낸 남녀노소 모두가 좋아하는 메뉴</p>
-                        <div class="flex items-center text-sm text-gray-500">
-                            <div class="flex items-center mr-4">
-                                <i class="ri-fire-fill text-primary mr-1"></i>
-                                <span>매운맛 3단계</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="ri-heart-fill text-primary mr-1"></i>
-                                <span>인기도 90%</span>
                             </div>
                         </div>
                     </div>
@@ -266,7 +239,7 @@
                     <!-- 대표 메뉴 1: 이미지 URL을 `src` 속성에 삽입하세요. -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="https://readdy.ai/api/search-image?query=Korean%20spicy%20chicken%20feet%20dish%20with%20charcoal%20grill%20marks%2C%20vibrant%20red%20color%2C%20served%20on%20a%20traditional%20plate%20with%20garnish%2C%20high-quality%20food%20photography%2C%20restaurant%20presentation%2C%20close-up%20detail%20of%20the%20dish%20texture%2C%20steam%20rising&width=600&height=400&seq=7&orientation=landscape" alt="통뼈국물닭발" class="w-full h-full object-cover">
+                            <img src="./images/menu_bone_soup.jpg" alt="통뼈국물닭발" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-bold text-gray-900 mb-2">통뼈국물닭발 (2인분)</h4>
                         <p class="text-gray-600 text-sm mb-3">단품메뉴 2인분부터 주문 가능</p>
@@ -275,7 +248,7 @@
                     <!-- 대표 메뉴 2: 이미지 URL을 `src` 속성에 삽입하세요. -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="https://readdy.ai/api/search-image?query=Korean%20spicy%20boneless%20chicken%20feet%20dish%20with%20red%20sauce%2C%20garnished%20with%20scallions%2C%20high-quality%20food%20photography%2C%20restaurant%20presentation%2C%20close-up%20detail%20of%20the%20dish%20texture%2C%20steam%20rising&width=600&height=400&seq=8&orientation=landscape" alt="무뼈국물닭발" class="w-full h-full object-cover">
+                            <img src="./images/menu_boneless_soup.jpg" alt="무뼈국물닭발" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-bold text-gray-900 mb-2">무뼈국물닭발 (2인분)</h4>
                         <p class="text-gray-600 text-sm mb-3">단품메뉴 주문 시 2인분 이상 주문 가능</p>
@@ -284,7 +257,7 @@
                     <!-- 대표 메뉴 3: 이미지 URL을 `src` 속성에 삽입하세요. -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="https://readdy.ai/api/search-image?query=Korean%20boneless%20spicy%20grilled%20chicken%20feet%20with%20charcoal%20grill%20marks%2C%20red%20sauce%2C%20garnished%20with%20sesame%20seeds%20and%20green%20onions%2C%20high-quality%20food%20photography%2C%20restaurant%20presentation%2C%20close-up%20detail%20of%20the%20dish%20texture%2C%20steam%20rising&width=600&height=400&seq=9&orientation=landscape" alt="무뼈참숯양념닭발" class="w-full h-full object-cover">
+                            <img src="./images/menu_boneless_charcoal.jpg" alt="무뼈참숯양념닭발" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-bold text-gray-900 mb-2">무뼈참숯양념닭발 (2인분)</h4>
                         <p class="text-gray-600 text-sm mb-3">단품메뉴 주문 시 2인분 이상 주문 가능</p>
@@ -300,7 +273,7 @@
                     <!-- 세트 메뉴 1: 이미지 URL을 `src` 속성에 삽입하세요. -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="https://readdy.ai/api/search-image?query=Korean%20chicken%20feet%20set%20meal%20with%20egg%20custard%2C%20flying%20fish%20roe%20rice%20balls%2C%20and%20a%20drink%20on%20a%20wooden%20table%2C%20high-quality%20food%20photography%2C%20restaurant%20presentation&width=600&height=400&seq=10&orientation=landscape" alt="2인분 세트" class="w-full h-full object-cover">
+                            <img src="./images/set_2person.jpg" alt="2인분 세트" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-bold text-gray-900 mb-2">2인분 세트</h4>
                         <p class="text-gray-600 text-sm mb-3">닭발or등갈비 2인분 + 계란찜, 날치알주먹밥, 음료(콜라, 사이다, 환타 랜덤 1개), 동치미</p>
@@ -309,7 +282,7 @@
                     <!-- 세트 메뉴 2: 이미지 URL을 `src` 속성에 삽입하세요. -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="https://readdy.ai/api/search-image?query=Korean%20chicken%20feet%20set%20meal%20for%203%20people%20with%20egg%20custard%2C%20flying%20fish%20roe%20rice%20balls%2C%20and%20a%20drink%20on%20a%20wooden%20table%2C%20high-quality%20food%20photography%2C%20restaurant%20presentation&width=600&height=400&seq=11&orientation=landscape" alt="3인분 세트" class="w-full h-full object-cover">
+                            <img src="./images/set_3person.jpg" alt="3인분 세트" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-bold text-gray-900 mb-2">3인분 세트</h4>
                         <p class="text-gray-600 text-sm mb-3">닭발or등갈비 3인분 + 계란찜, 날치알주먹밥, 음료(콜라, 사이다, 환타 랜덤 1개), 동치미</p>
@@ -325,7 +298,7 @@
                     <!-- 사이드 메뉴 1: 이미지 URL을 `src` 속성에 삽입하세요. -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="https://readdy.ai/api/search-image?query=Korean%20steamed%20egg%20custard%20dish%2C%20served%20in%20a%20traditional%20earthenware%20pot%2C%20fluffy%20texture%2C%20high-quality%20food%20photography%2C%20restaurant%20presentation&width=600&height=400&seq=12&orientation=landscape" alt="계란찜" class="w-full h-full object-cover">
+                            <img src="./images/side_egg_custard.jpg" alt="계란찜" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-bold text-gray-900 mb-2">계란찜</h4>
                         <span class="text-primary font-bold text-lg">4,000원</span>
@@ -333,7 +306,7 @@
                     <!-- 사이드 메뉴 2: 이미지 URL을 `src` 속성에 삽입하세요. -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="https://readdy.ai/api/search-image?query=Korean%20flying%20fish%20roe%20rice%20balls%20with%20seaweed%2C%20served%20on%20a%20plate%2C%20high-quality%20food%20photography%2C%20restaurant%20presentation&width=600&height=400&seq=13&orientation=landscape" alt="날치알주먹밥" class="w-full h-full object-cover">
+                            <img src="./images/side_rice_balls.jpg" alt="날치알주먹밥" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-bold text-gray-900 mb-2">날치알주먹밥</h4>
                         <span class="text-primary font-bold text-lg">4,000원</span>
@@ -341,57 +314,26 @@
                     <!-- 사이드 메뉴 3: 이미지 URL을 `src` 속성에 삽입하세요. -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="https://readdy.ai/api/search-image?query=Korean%20Janchi%20Guksu%20(banquet%20noodles)%20with%20colorful%20garnish%2C%20served%20in%20a%20bowl%2C%20high-quality%20food%20photography%2C%20restaurant%20presentation&width=600&height=400&seq=14&orientation=landscape" alt="잔치국수" class="w-full h-full object-cover">
+                            <img src="./images/side_janchi_guksu.jpg" alt="잔치국수" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-bold text-gray-900 mb-2">잔치국수 (냉/온 선택)</h4>
                         <span class="text-primary font-bold text-lg">7,000원</span>
                     </div>
-                    <!-- 사이드 메뉴 4: 이미지 URL을 `src` 속성에 삽입하세요. -->
-                    <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
-                        <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="https://readdy.ai/api/search-image?query=Korean%20Dotori%20Muk%20(acorn%20jelly)%20salad%20with%20vegetables%20and%20sauce%2C%20served%20in%20a%20bowl%2C%20high-quality%20food%20photography%2C%20restaurant%20presentation&width=600&height=400&seq=15&orientation=landscape" alt="도토리묵사발" class="w-full h-full object-cover">
-                        </div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">도토리묵사발</h4>
-                        <span class="text-primary font-bold text-lg">7,000원</span>
-                    </div>
+                    <!-- 사이드 메뉴 4 (도토리묵사발은 제거됨) -->
                     <!-- 사이드 메뉴 5: 이미지 URL을 `src` 속성에 삽입하세요. -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="https://readdy.ai/api/search-image?query=bowl%20of%20steamed%20white%20rice%2C%20Korean%20side%20dish%2C%20simple%20food%20photography%2C%20clean%20background%2C%20restaurant%20presentation&width=600&height=400&seq=16&orientation=landscape" alt="공기밥" class="w-full h-full object-cover">
+                            <img src="./images/side_rice.jpg" alt="공기밥" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-bold text-gray-900 mb-2">공기밥</h4>
                         <span class="text-primary font-bold text-lg">2,000원</span>
                     </div>
-                    <!-- 사이드 메뉴 6: 이미지 URL을 `src` 속성에 삽입하세요. -->
+                    <!-- 사이드 메뉴 6 (음료수 통합): 이미지 URL을 `src` 속성에 삽입하세요. (예: './images/side_drink_combined.jpg') -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="https://readdy.ai/api/search-image?query=Coca-Cola%20can%20or%20bottle%20with%20condensation%2C%20chilled%20drink%2C%20refreshing%2C%20food%20photography%2C%20clean%20background&width=600&height=400&seq=17&orientation=landscape" alt="음료수(콜라)" class="w-full h-full object-cover">
+                            <img src="./images/side_drink_combined.jpg" alt="음료수" class="w-full h-full object-cover">
                         </div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">음료수 (콜라)</h4>
-                        <span class="text-primary font-bold text-lg">2,000원</span>
-                    </div>
-                    <!-- 사이드 메뉴 7: 이미지 URL을 `src` 속성에 삽입하세요. -->
-                    <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
-                        <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="https://readdy.ai/api/search-image?query=Sprite%20can%20or%20bottle%20with%20condensation%2C%20chilled%20drink%2C%20refreshing%2C%20food%20photography%2C%20clean%20background&width=600&height=400&seq=18&orientation=landscape" alt="음료수(사이다)" class="w-full h-full object-cover">
-                        </div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">음료수 (사이다)</h4>
-                        <span class="text-primary font-bold text-lg">2,000원</span>
-                    </div>
-                    <!-- 사이드 메뉴 8: 이미지 URL을 `src` 속성에 삽입하세요. -->
-                    <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
-                        <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="https://readdy.ai/api/search-image?query=Fanta%20orange%20can%20or%20bottle%20with%20condensation%2C%20chilled%20drink%2C%20refreshing%2C%20food%20photography%2C%20clean%20background&width=600&height=400&seq=19&orientation=landscape" alt="음료수(환타)" class="w-full h-full object-cover">
-                        </div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">음료수 (환타)</h4>
-                        <span class="text-primary font-bold text-lg">2,000원</span>
-                    </div>
-                    <!-- 사이드 메뉴 9: 이미지 URL을 `src` 속성에 삽입하세요. -->
-                    <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center">
-                        <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="https://readdy.ai/api/search-image?query=Tonic%20water%20bottle%20with%20ice%2C%20chilled%20drink%2C%20refreshing%2C%20food%20photography%2C%20clean%20background&width=600&height=400&seq=20&orientation=landscape" alt="음료수(토닉워터)" class="w-full h-full object-cover">
-                        </div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">음료수 (토닉워터)</h4>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">음료수 (콜라, 사이다, 환타 중 선택)</h4>
                         <span class="text-primary font-bold text-lg">2,000원</span>
                     </div>
                 </div>
@@ -513,8 +455,8 @@
                     </div>
                 </div>
                 <div class="h-[400px] rounded-lg overflow-hidden shadow-sm relative">
-                    <!-- 지도 이미지 또는 임베드 수정 가능 -->
-                    <div class="absolute inset-0" style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png'); background-size: cover; background-position: center;"></div>
+                    <!-- 지도 이미지 또는 임베드 수정 가능 (예: './images/map_placeholder.png') -->
+                    <div class="absolute inset-0" style="background-image: url('./images/map_placeholder.png'); background-size: cover; background-position: center;"></div>
                     <div class="absolute top-4 right-4 bg-white p-3 rounded-lg shadow-md">
                         <div class="flex space-x-2">
                             <button class="w-8 h-8 bg-gray-100 rounded flex items-center justify-center hover:bg-gray-200">
@@ -631,11 +573,11 @@
             </div>
             
             <div class="text-center mt-12 flex justify-center gap-4">
-                <!-- 더 많은 리뷰 보기 버튼 -->
-                <button onclick="window.scrollTo({ top: document.getElementById('review').offsetTop - (document.querySelector('nav').offsetHeight), behavior: 'smooth' });" class="bg-white border-2 border-primary text-primary px-8 py-3 rounded-button font-bold hover:bg-primary/5 transition-all whitespace-nowrap">
+                <!-- 더 많은 리뷰 보기 버튼 (all-reviews.html 페이지로 이동) -->
+                <a href="all-reviews.html" class="bg-white border-2 border-primary text-primary px-8 py-3 rounded-button font-bold hover:bg-primary/5 transition-all whitespace-nowrap inline-block text-center">
                     더 많은 리뷰 보기
-                </button>
-                <!-- 리뷰 작성하기 버튼 (새 페이지로 이동) -->
+                </a>
+                <!-- 리뷰 작성하기 버튼 (review-form.html 페이지로 이동) -->
                 <a href="review-form.html" class="bg-primary text-white px-8 py-3 rounded-button font-bold hover:bg-opacity-90 transition-all whitespace-nowrap inline-block text-center">
                     리뷰 작성하기
                 </a>
@@ -654,18 +596,21 @@
             </p>
             
             <div class="max-w-md mx-auto">
-                <div class="flex">
-                    <!-- [데이터베이스 연동 필요] 뉴스레터 구독 이메일 저장 
-                         클라이언트(브라우저)에서 Google Sheet로 직접 데이터 전송은 보안 및 CORS 정책으로 인해 제한됩니다.
-                         Google Apps Script, Firebase, 또는 백엔드 서버(Node.js, Python 등)를 통해 API를 구축하여 연동해야 합니다.
-                         이메일 입력 후 서버로 데이터를 보내는 코드를 여기에 추가해야 합니다.
-                    -->
-                    <input type="email" placeholder="이메일 주소를 입력하세요" class="flex-1 px-4 py-3 rounded-l-button border-none focus:outline-none focus:ring-2 focus:ring-primary/50 text-sm">
+                <!-- Netlify Forms 설정: name="newsletter-form", data-netlify="true", netlify-honeypot="bot-field" 추가 -->
+                <form name="newsletter-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/index.html" class="flex">
+                    <!-- Netlify Forms 스팸 방지 필드 (숨김) -->
+                    <p class="hidden">
+                        <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+                    </p>
+
+                    <!-- 이메일 입력 필드: name="email" 필수 -->
+                    <input type="email" name="email" placeholder="이메일 주소를 입력하세요" class="flex-1 px-4 py-3 rounded-l-button border-none focus:outline-none focus:ring-2 focus:ring-primary/50 text-sm" required>
+                    
                     <!-- 버튼 문구 수정 가능 -->
-                    <button class="bg-primary text-white px-6 py-3 rounded-r-button font-bold hover:bg-opacity-90 transition-all whitespace-nowrap">
+                    <button type="submit" class="bg-primary text-white px-6 py-3 rounded-r-button font-bold hover:bg-opacity-90 transition-all whitespace-nowrap">
                         구독하기
                     </button>
-                </div>
+                </form>
                 <p class="text-xs text-gray-500 mt-3">
                     구독 신청 시 <a href="#" class="text-primary hover:underline">개인정보 처리방침</a>에 동의하는 것으로 간주됩니다.
                 </p>
@@ -697,8 +642,8 @@
                         <h3 class="text-lg font-bold mb-4">메뉴</h3>
                         <ul class="space-y-2">
                             <!-- 메뉴 링크 수정 가능 -->
-                            <li><a href="#menu" class="text-gray-400 hover:text-white">인기 메뉴</a></li>
-                            <li><a href="#detailed-menu" class="text-gray-400 hover:text-white">전체 메뉴</a></li>
+                            <li><a href="index.html#menu" class="text-gray-400 hover:text-white">인기 메뉴</a></li>
+                            <li><a href="index.html#detailed-menu" class="text-gray-400 hover:text-white">전체 메뉴</a></li>
                             <li><a href="order-form.html" class="text-gray-400 hover:text-white">온라인 주문</a></li>
                         </ul>
                     </div>
@@ -708,9 +653,9 @@
                         <h3 class="text-lg font-bold mb-4">정보</h3>
                         <ul class="space-y-2">
                             <!-- 정보 링크 수정 가능 -->
-                            <li><a href="#youtube-story" class="text-gray-400 hover:text-white">호호 유튜브</a></li>
-                            <li><a href="#location" class="text-gray-400 hover:text-white">매장 안내</a></li>
-                            <li><a href="#review" class="text-gray-400 hover:text-white">고객 리뷰</a></li>
+                            <li><a href="index.html#youtube-story" class="text-gray-400 hover:text-white">호호 유튜브</a></li>
+                            <li><a href="index.html#location" class="text-gray-400 hover:text-white">매장 안내</a></li>
+                            <li><a href="index.html#review" class="text-gray-400 hover:text-white">고객 리뷰</a></li>
                             <li><a href="review-form.html" class="text-gray-400 hover:text-white">리뷰 작성</a></li>
                         </ul>
                     </div>
@@ -777,11 +722,11 @@
                 </div>
                 <div class="p-4">
                     <nav class="space-y-4">
-                        <a href="#" class="block py-2 text-lg font-medium text-gray-700 hover:text-primary">홈</a>
-                        <a href="#menu" class="block py-2 text-lg font-medium text-gray-700 hover:text-primary">메뉴</a>
-                        <a href="#youtube-story" class="block py-2 text-lg font-medium text-gray-700 hover:text-primary">유튜브</a>
-                        <a href="#location" class="block py-2 text-lg font-medium text-gray-700 hover:text-primary">매장안내</a>
-                        <a href="#review" class="block py-2 text-lg font-medium text-gray-700 hover:text-primary">리뷰</a>
+                        <a href="index.html" class="block py-2 text-lg font-medium text-gray-700 hover:text-primary">홈</a>
+                        <a href="index.html#menu" class="block py-2 text-lg font-medium text-gray-700 hover:text-primary">메뉴</a>
+                        <a href="index.html#youtube-story" class="block py-2 text-lg font-medium text-gray-700 hover:text-primary">유튜브</a>
+                        <a href="index.html#location" class="block py-2 text-lg font-medium text-gray-700 hover:text-primary">매장안내</a>
+                        <a href="index.html#review" class="block py-2 text-lg font-medium text-gray-700 hover:text-primary">리뷰</a>
                     </nav>
                     <div class="mt-8">
                         <a href="order-form.html" class="w-full bg-primary text-white py-3 rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap text-center block">주문하기</a>
@@ -806,25 +751,31 @@
                     mobileMenu.classList.add('translate-x-full'); // 메뉴 닫기
                     // 부드러운 스크롤 (기존 네비게이션 스크롤과 동일하게 작동)
                     const targetId = this.getAttribute('href');
-                    if (targetId && targetId.startsWith('#')) {
+                    if (targetId && targetId.includes('#')) { // 앵커가 포함된 경우만 처리
                         e.preventDefault();
-                        const targetElement = document.querySelector(targetId);
+                        const anchor = targetId.split('#')[1];
+                        const targetElement = document.getElementById(anchor);
                         if (targetElement) {
                             window.scrollTo({
                                 top: targetElement.offsetTop - (document.querySelector('nav').offsetHeight), // 네비게이션 높이만큼 보정
                                 behavior: 'smooth'
                             });
                         }
+                    } else if (targetId.endsWith('.html')) { // .html 파일인 경우 (예: order-form.html)
+                        // 기본 링크 이동 동작
+                    } else { // 기본 홈 링크이거나 다른 경우
+                        // 기본 링크 이동 동작
                     }
                 });
             });
 
             // 데스크탑 메뉴 항목 클릭 시 부드러운 스크롤
-            document.querySelectorAll('nav.hidden.md\\:flex a[href^="#"]').forEach(anchor => {
+            document.querySelectorAll('nav.hidden.md\\:flex a[href^="index.html#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
+                    const anchorName = targetId.split('#')[1];
+                    const targetElement = document.getElementById(anchorName);
                     if (targetElement) {
                         window.scrollTo({
                             top: targetElement.offsetTop - (document.querySelector('nav').offsetHeight), // 네비게이션 높이만큼 보정
@@ -834,7 +785,7 @@
                 });
             });
         });
-
+        
         // "전체 메뉴 보기" 버튼 토글 스크립트
         document.addEventListener('DOMContentLoaded', function() {
             const toggleButton = document.getElementById('toggle-detailed-menu');
@@ -860,51 +811,10 @@
                 });
             }
         });
-
-        // 뉴스레터 구독 폼 유효성 검사 (간단 버전)
-        document.addEventListener('DOMContentLoaded', function() {
-            const newsletterButton = document.querySelector('#newsletter .max-w-md .flex button');
-            if (newsletterButton) {
-                newsletterButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const emailInput = this.previousElementSibling;
-                    const email = emailInput.value.trim();
-
-                    if (!email || !email.includes('@') || !email.includes('.')) {
-                        alert('유효한 이메일 주소를 입력해주세요.');
-                        emailInput.focus();
-                    } else {
-                        // [Google Sheets 연동 필요]
-                        // 여기서는 Google Sheets로 직접 데이터를 보낼 수 없습니다.
-                        // 서버리스 함수 (예: Google Apps Script), 또는 백엔드 서비스(Node.js, Python 등)를 통해
-                        // 이메일 데이터를 받아서 Google Sheets에 기록해야 합니다.
-                        // 예시:
-                        // fetch('YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL', {
-                        //     method: 'POST',
-                        //     mode: 'no-cors', // Apps Script로 보낼 때는 no-cors 모드 사용
-                        //     headers: {
-                        //         'Content-Type': 'application/json',
-                        //     },
-                        //     body: JSON.stringify({ email: email, type: 'newsletter' }),
-                        // })
-                        // .then(response => {
-                        //     // 실제로는 no-cors 때문에 response를 직접 읽을 수 없습니다.
-                        //     // Apps Script 쪽에서 성공적으로 처리되었는지 확인해야 합니다.
-                        //     alert('뉴스레터 구독이 완료되었습니다. 감사합니다!');
-                        //     emailInput.value = '';
-                        // })
-                        // .catch(error => {
-                        //     console.error('Error:', error);
-                        //     alert('구독 중 오류가 발생했습니다. 다시 시도해주세요.');
-                        // });
-
-                        console.log('뉴스레터 구독 이메일:', email);
-                        alert('뉴스레터 구독이 완료되었습니다. 감사합니다!');
-                        emailInput.value = ''; // 입력 필드 초기화
-                    }
-                });
-            }
-        });
+        
+        // 뉴스레터 폼은 Netlify Forms로 자동 처리됩니다.
+        // 추가적인 JS 유효성 검사 로직이 필요하면 여기에 추가 가능합니다.
+        // 예를 들어, 제출 전 이메일 형식을 더 엄격하게 검사하고 싶을 때.
     </script>
 </body>
 </html>
