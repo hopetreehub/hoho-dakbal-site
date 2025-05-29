@@ -213,10 +213,11 @@
                 // 라디오 버튼의 텍스트를 감싸는 span 태그를 생성하고 이동
                 const label = radio.nextElementSibling; // 현재 라디오 버튼 바로 다음의 label
                 if (label && label.tagName === 'LABEL') {
-                    const existingText = label.childNodes[1]; // 텍스트 노드 또는 다음 요소
-                    const spanForRadioIcon = document.createElement('span'); // 라디오 아이콘용 span
-                    
-                    label.insertBefore(spanForRadioIcon, existingText); // 아이콘 span을 텍스트 앞에 삽입
+                    // 이미 span이 없다면 생성하고 추가
+                    if (!label.querySelector('span:first-child')) {
+                        const spanForRadioIcon = document.createElement('span'); // 라디오 아이콘용 span
+                        label.insertBefore(spanForRadioIcon, label.firstChild); // 아이콘 span을 텍스트 앞에 삽입
+                    }
                 }
 
                 radio.addEventListener('change', function() {
