@@ -74,6 +74,23 @@
             border-color: #FF3B30; /* Primary 색상 테두리 강조 */
         }
         
+        /* 버튼에 적용할 강한 호버 효과 */
+        .hover-strong {
+            transition: all 0.3s ease-in-out;
+        }
+        .hover-strong:hover {
+            background-color: #E53E3E; /* primary 색상보다 진하게 */
+            transform: translateY(-2px); /* 살짝 떠오르는 느낌 */
+            box-shadow: 0 8px 15px rgba(255, 59, 48, 0.3); /* 강한 그림자 */
+            /* 텍스트 색상 변화 (흰색 버튼일 경우) */
+            color: #FF3B30; /* Primary 색상 */
+        }
+        .hover-strong.bg-primary:hover {
+            background-color: #C52C2C; /* primary 색상 더 진하게 */
+            color: #fff; /* 흰색 텍스트 유지 */
+        }
+
+
         /* 섹션별 배경색 정의 */
         .section-white {
             background-color: #fff;
@@ -90,9 +107,9 @@
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <div class="logo-container flex items-center">
-                        <!-- 로고 이미지 적용 -->
-                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center overflow-hidden">
-                            <img src="https://res.cloudinary.com/dc7yeqa9m/image/upload/v1748713841/Black_Yellow_Brush_Streetwear_Brand_Logo_2_qrsekr.png" alt="호호참숯불닭발 로고" class="w-full h-full object-contain p-1">
+                        <!-- 헤더 로고 이미지 적용 -->
+                        <div class="w-12 h-12 flex items-center justify-center overflow-hidden">
+                            <img src="https://res.cloudinary.com/dc7yeqa9m/image/upload/v1748716032/Black_Yellow_Brush_Streetwear_Brand_Logo_3_oy1qjg.png" alt="호호참숯불닭발 로고" class="w-full h-full object-contain">
                         </div>
                         <!-- 로고 텍스트 수정 가능 -->
                         <h1 class="ml-2 text-2xl logo-text text-gray-900">호호참숯불닭발</h1>
@@ -109,7 +126,7 @@
                     <a href="#location" class="text-gray-700 hover:text-primary font-medium">매장안내</a>
                     <a href="#review" class="text-gray-700 hover:text-primary font-medium">리뷰</a>
                     <!-- 주문하기 버튼은 order-form.html 페이지로 이동 -->
-                    <a href="order-form.html" class="bg-primary text-white px-6 py-2 rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap text-center">주문하기</a>
+                    <a href="order-form.html" class="bg-primary text-white px-6 py-2 rounded-button font-medium hover-strong text-center">주문하기</a>
                 </div>
                 <!-- 모바일 메뉴 버튼 -->
                 <div class="md:hidden flex items-center">
@@ -138,10 +155,10 @@
                     참숯불에 구워 깊은 풍미와 매콤한 맛이 일품입니다.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="order-form.html" class="bg-primary text-white px-8 py-3 rounded-button font-bold hover:bg-opacity-90 transition-all whitespace-nowrap text-center">
+                    <a href="order-form.html" class="bg-primary text-white px-8 py-3 rounded-button font-bold hover-strong text-center">
                         지금 주문하기
                     </a>
-                    <a href="#menu" class="bg-white border-2 border-primary text-primary px-8 py-3 rounded-button font-bold hover:bg-primary/5 transition-all whitespace-nowrap text-center">
+                    <a href="#menu" class="bg-white border-2 border-primary text-primary px-8 py-3 rounded-button font-bold hover-strong text-center">
                         메뉴 보기
                     </a>
                 </div>
@@ -239,7 +256,7 @@
             
             <div class="text-center mt-12">
                 <!-- 전체 메뉴 보기 버튼 (클릭 시 상세 메뉴 섹션 토글) -->
-                <button id="toggle-detailed-menu" class="bg-white border-2 border-primary text-primary px-8 py-3 rounded-button font-bold hover:bg-primary/5 transition-all whitespace-nowrap">
+                <button id="toggle-detailed-menu" class="bg-white border-2 border-primary text-primary px-8 py-3 rounded-button font-bold hover-strong">
                     전체 메뉴 보기
                 </button>
             </div>
@@ -297,22 +314,22 @@
             <div class="mb-12">
                 <h3 class="text-2xl font-bold text-gray-900 mb-6 border-b-2 border-primary pb-3">세트 메뉴</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- 세트 메뉴 1: 이미지 URL을 실제 Cloudinary 이미지 URL로 변경하세요. -->
+                    <!-- 세트 메뉴 1: 2인분 세트 이미지 적용 -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center neon-hover">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="https://readdy.ai/api/search-image?query=Korean%20chicken%20feet%20set%20meal%20with%20egg%20custard%2C%20flying%20fish%20roe%20rice%20balls%2C%20and%20a%20drink%20on%20a%20wooden%20table%2C%20high-quality%20food%20photography%2C%20restaurant%20presentation&width=600&height=400&seq=10&orientation=landscape" alt="2인분 세트" class="w-full h-full object-cover">
+                            <img src="https://res.cloudinary.com/dc7yeqa9m/image/upload/v1748533940/menu-tongbone_qpmj2w.png" alt="2인분 세트" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-bold text-gray-900 mb-2">2인분 세트</h4>
-                        <p class="text-gray-600 text-sm mb-3">닭발or등갈비 2인분 + 계란찜, 날치알주먹밥, 음료(콜라, 사이다, 환타 랜덤 1개), 동치미</p>
+                        <p class="text-gray-600 text-sm mb-3">닭발or등갈비 2인분 + 계란찜, 날치알주먹밥, 음료(콜라,사이다,환타 랜덤 1개),동치미</p>
                         <span class="text-primary font-bold text-lg">30,000원</span>
                     </div>
-                    <!-- 세트 메뉴 2: 이미지 URL을 실제 Cloudinary 이미지 URL로 변경하세요. -->
+                    <!-- 세트 메뉴 2: 3인분 세트 이미지 적용 -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm p-6 flex flex-col items-center text-center neon-hover">
                         <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                            <img src="https://readdy.ai/api/search-image?query=Korean%20chicken%20feet%20set%20meal%20for%203%20people%20with%20egg%20custard%2C%20flying%20fish%20roe%20rice%20balls%2C%20and%20a%20drink%20on%20a%20wooden%20table%2C%20high-quality%20food%20photography%2C%20restaurant%20presentation&width=600&height=400&seq=11&orientation=landscape" alt="3인분 세트" class="w-full h-full object-cover">
+                            <img src="https://res.cloudinary.com/dc7yeqa9m/image/upload/v1748533938/set_2person_imoknq.png" alt="3인분 세트" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-bold text-gray-900 mb-2">3인분 세트</h4>
-                        <p class="text-gray-600 text-sm mb-3">닭발or등갈비 3인분 + 계란찜, 날치알주먹밥, 음료(콜라, 사이다, 환타 랜덤 1개), 동치미</p>
+                        <p class="text-gray-600 text-sm mb-3">닭발or등갈비 3인분 + 계란찜, 날치알주먹밥, 음료(콜라,사이다,환타 랜덤 1개),동치미</p>
                         <span class="text-primary font-bold text-lg">40,000원</span>
                     </div>
                 </div>
@@ -434,7 +451,7 @@
             </div>
             
             <div class="text-center mt-12">
-                <a href="https://www.youtube.com/@YourChannel" target="_blank" class="bg-white border-2 border-primary text-primary px-8 py-3 rounded-button font-bold hover:bg-primary/5 transition-all whitespace-nowrap">
+                <a href="https://www.youtube.com/@YourChannel" target="_blank" class="bg-white border-2 border-primary text-primary px-8 py-3 rounded-button font-bold hover-strong">
                     더 많은 영상 보기
                 </a>
             </div>
@@ -452,8 +469,8 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <!-- 매장 정보 카드 배경색 변경 -->
-                <div class="bg-primary/5 p-8 rounded-lg shadow-sm">
+                <!-- 매장 정보 카드 배경색 변경 및 높이 조정 -->
+                <div class="bg-primary/5 p-8 rounded-lg shadow-sm min-h-[450px]">
                     <h3 class="text-2xl font-semibold mb-6 text-center">매장 정보</h3>
                     <div class="space-y-4">
                         <div class="flex items-start">
@@ -472,8 +489,8 @@
                             </div>
                             <div class="ml-4">
                                 <h4 class="font-medium text-gray-900">영업시간</h4>
-                                <!-- 영업시간 수정 가능 -->
-                                <p class="text-gray-600">매일 11:30 - 22:00 (라스트오더 21:30)</p>
+                                <!-- 영업시간 수정 (라스트오더 삭제) -->
+                                <p class="text-gray-600">매일 오후 4시부터 새벽 2시까지</p>
                                 <p class="text-gray-600">매주 월요일 휴무</p>
                             </div>
                         </div>
@@ -489,9 +506,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="h-[400px] rounded-lg overflow-hidden shadow-sm relative">
-                    <!-- Google Maps 임베드 URL 적용 -->
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3224.288229871147!2d128.37525381527357!3d36.10842278007297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3565af44503e100f%3A0xc4a7b7074b1e5a51!2z6rSA67CV7ZW07JaR7IaQ64u567OE7Iiy!5e0!3m2!1sko!2skr!4v1625123456789!5m2!1sko!2skr" 
+                <!-- Google Maps 임베드 URL 적용 및 높이 통일 -->
+                <div class="h-[450px] rounded-lg overflow-hidden shadow-sm relative">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3222.0272744870326!2d128.41901121163923!3d36.14154917232734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3565c5ee2e0a0a75%3A0x83fae7c0f303328f!2z7Zi47Zi47LC47Iiv67aI64ut67Cc!5e0!3m2!1sko!2sde!4v1748716865008!5m2!1sko!2sde" 
                             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     
                     <div class="absolute top-4 right-4 bg-white p-3 rounded-lg shadow-md hidden"> <!-- 지도 확대/축소 버튼은 임베드 지도에는 적용되지 않으므로 숨김 -->
@@ -611,11 +628,11 @@
             
             <div class="text-center mt-12 flex justify-center gap-4">
                 <!-- 더 많은 리뷰 보기 버튼 (새 페이지로 이동) -->
-                <a href="all-reviews.html" class="bg-white border-2 border-primary text-primary px-8 py-3 rounded-button font-bold hover:bg-primary/5 transition-all whitespace-nowrap inline-block text-center">
+                <a href="all-reviews.html" class="bg-white border-2 border-primary text-primary px-8 py-3 rounded-button font-bold hover-strong">
                     더 많은 리뷰 보기
                 </a>
                 <!-- 리뷰 작성하기 버튼 (새 페이지로 이동) -->
-                <a href="review-form.html" class="bg-primary text-white px-8 py-3 rounded-button font-bold hover:bg-opacity-90 transition-all whitespace-nowrap inline-block text-center">
+                <a href="review-form.html" class="bg-primary text-white px-8 py-3 rounded-button font-bold hover-strong">
                     리뷰 작성하기
                 </a>
             </div>
@@ -646,7 +663,7 @@
                     <input type="email" name="email" placeholder="이메일 주소를 입력하세요" class="flex-1 px-4 py-3 rounded-l-button border-none focus:outline-none focus:ring-2 focus:ring-primary/50 text-sm" required>
                     
                     <!-- 버튼 문구 수정 가능 -->
-                    <button type="submit" class="bg-primary text-white px-6 py-3 rounded-r-button font-bold hover:bg-opacity-90 transition-all whitespace-nowrap">
+                    <button type="submit" class="bg-primary text-white px-6 py-3 rounded-r-button font-bold hover-strong">
                         구독하기
                     </button>
                 </form>
@@ -663,9 +680,9 @@
             <div class="flex flex-col md:flex-row justify-between">
                 <div class="mb-8 md:mb-0">
                     <div class="flex items-center mb-6">
-                        <!-- 푸터 로고 이미지 (제공된 Cloudinary URL 사용) -->
-                        <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center overflow-hidden">
-                            <img src="https://res.cloudinary.com/dc7yeqa9m/image/upload/v1748713841/Black_Yellow_Brush_Streetwear_Brand_Logo_2_qrsekr.png" alt="호호참숯불닭발 로고" class="w-full h-full object-contain p-1">
+                        <!-- 푸터 로고 이미지 적용 -->
+                        <div class="w-10 h-10 flex items-center justify-center overflow-hidden">
+                            <img src="https://res.cloudinary.com/dc7yeqa9m/image/upload/v1748716559/Black_Yellow_Brush_Streetwear_Brand_Logo_4_pobp4v.png" alt="호호참숯불닭발 로고" class="w-full h-full object-contain">
                         </div>
                         <!-- 로고 텍스트 수정 가능 -->
                         <h2 class="ml-2 text-xl font-bold">호호참숯불닭발</h2>
@@ -766,9 +783,9 @@
             mobileMenu.innerHTML = `
                 <div class="flex justify-between items-center p-4 border-b">
                     <div class="flex items-center">
-                        <!-- 모바일 메뉴 로고 이미지 (제공된 Cloudinary URL 사용) -->
-                        <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center overflow-hidden">
-                            <img src="https://res.cloudinary.com/dc7yeqa9m/image/upload/v1748713841/Black_Yellow_Brush_Streetwear_Brand_Logo_2_qrsekr.png" alt="호호참숯불닭발 로고" class="w-full h-full object-contain p-1">
+                        <!-- 모바일 메뉴 로고 이미지 적용 -->
+                        <div class="w-10 h-10 flex items-center justify-center overflow-hidden">
+                            <img src="https://res.cloudinary.com/dc7yeqa9m/image/upload/v1748716032/Black_Yellow_Brush_Streetwear_Brand_Logo_3_oy1qjg.png" alt="호호참숯불닭발 로고" class="w-full h-full object-contain">
                         </div>
                         <h1 class="ml-2 text-xl font-bold">호호참숯불닭발</h1>
                     </div>
@@ -785,7 +802,7 @@
                         <a href="#review" class="block py-2 text-lg font-medium text-gray-700 hover:text-primary" onclick="mobileMenuCloseAndScroll(event);">리뷰</a>
                     </nav>
                     <div class="mt-8">
-                        <a href="order-form.html" class="w-full bg-primary text-white py-3 rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap text-center block">주문하기</a>
+                        <a href="order-form.html" class="w-full bg-primary text-white py-3 rounded-button font-medium hover-strong text-center block">주문하기</a>
                     </div>
                 </div>
             `;
