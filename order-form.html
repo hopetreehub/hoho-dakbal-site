@@ -39,22 +39,31 @@
             background-color: #f8f8f8;
         }
         /* 커스텀 라디오 버튼 스타일 */
-        input[type="radio"] + label span:first-child {
-            display: inline-block;
+        /* Flexbox를 사용하여 라디오 버튼과 텍스트를 가로로 정렬하고 간격 조정 */
+        .payment-options-group label { /* 직접 label에 flex 적용 */
+            display: flex;
+            align-items: center; /* 세로 중앙 정렬 */
+            gap: 0.5rem; /* 라디오 버튼과 텍스트 사이 간격 */
+            cursor: pointer;
+        }
+        input[type="radio"] {
+            /* 기본 라디오 버튼 숨기고 커스텀 디자인 사용 */
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
             width: 20px;
             height: 20px;
-            margin-right: 8px;
-            border-radius: 9999px; /* full rounded */
+            border-radius: 9999px; /* 원형 */
             border: 2px solid #D1D5DB; /* gray-300 */
-            transition: all 0.2s ease-in-out;
             position: relative;
-            vertical-align: middle;
+            flex-shrink: 0; /* 라디오 버튼 크기 고정 */
+            transition: all 0.2s ease-in-out;
         }
-        input[type="radio"]:checked + label span:first-child {
+        input[type="radio"]:checked {
             border-color: var(--tw-colors-primary);
             background-color: var(--tw-colors-primary);
         }
-        input[type="radio"]:checked + label span:first-child::after {
+        input[type="radio"]:checked::after {
             content: "";
             position: absolute;
             top: 50%;
@@ -65,6 +74,7 @@
             border-radius: 9999px;
             background-color: #fff;
         }
+
         /* 커스텀 체크박스 스타일 */
         .custom-checkbox {
             position: relative;
@@ -103,14 +113,14 @@
     <!-- 상단 바 (간소화) -->
     <header class="bg-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="호호참숯불닭발-홈피.html" class="flex items-center text-gray-900">
-                <!-- 로고 이미지가 들어갈 자리 (호호 로고 파일을 ./images/hoho-logo.png 에 저장하고 사용하세요) -->
+            <a href="index.html" class="flex items-center text-gray-900">
+                <!-- 로고 이미지가 들어갈 자리 (제공된 Cloudinary URL 사용) -->
                 <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center overflow-hidden">
-                    <img src="./images/hoho-logo.png" alt="호호참숯불닭발 로고" class="w-full h-full object-contain p-1">
+                    <img src="https://res.cloudinary.com/dc7yeqa9m/image/upload/v1748711757/Black_Yellow_Brush_Streetwear_Brand_Logo_1_obl28f.png" alt="호호참숯불닭발 로고" class="w-full h-full object-contain p-1">
                 </div>
                 <h1 class="ml-2 text-xl font-bold">호호참숯불닭발</h1>
             </a>
-            <a href="호호참숯불닭발-홈피.html#menu" class="text-gray-700 hover:text-primary font-medium">
+            <a href="index.html#menu" class="text-gray-700 hover:text-primary font-medium" onclick="restoreScrollPosition(event);">
                 메뉴 목록으로 돌아가기
             </a>
         </div>
@@ -156,25 +166,19 @@
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-3">결제 방법</label>
-                            <div class="space-y-2">
-                                <div class="flex items-center">
+                            <div class="space-y-2 payment-options-group">
+                                <label class="flex items-center cursor-pointer">
                                     <input type="radio" id="payment-card" name="paymentMethod" value="신용카드" required>
-                                    <label for="payment-card" class="flex items-center cursor-pointer">
-                                        <span>신용카드</span>
-                                    </label>
-                                </div>
-                                <div class="flex items-center">
+                                    <span>신용카드</span>
+                                </label>
+                                <label class="flex items-center cursor-pointer">
                                     <input type="radio" id="payment-bank" name="paymentMethod" value="계좌이체">
-                                    <label for="payment-bank" class="flex items-center cursor-pointer">
-                                        <span>계좌이체</span>
-                                    </label>
-                                </div>
-                                <div class="flex items-center">
+                                    <span>계좌이체</span>
+                                </label>
+                                <label class="flex items-center cursor-pointer">
                                     <input type="radio" id="payment-cash" name="paymentMethod" value="현금결제">
-                                    <label for="payment-cash" class="flex items-center cursor-pointer">
-                                        <span>현금결제</span>
-                                    </label>
-                                </div>
+                                    <span>현금결제</span>
+                                </label>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -194,48 +198,48 @@
     </section>
 
     <script>
-        // 커스텀 라디오 버튼 스타일 적용 스크립트
+        // 스크롤 위치 복원 함수
+        function restoreScrollPosition(event) {
+            sessionStorage.setItem('scrollPosition', window.scrollY);
+        }
+
+        // 라디오 버튼 스타일 및 주문 폼 유효성 검사 스크립트
         document.addEventListener('DOMContentLoaded', function() {
             const radioButtons = document.querySelectorAll('input[type="radio"][name="paymentMethod"]');
             radioButtons.forEach(radio => {
                 radio.addEventListener('change', function() {
                     document.querySelectorAll(`input[name="${this.name}"]`).forEach(r => {
-                        const span = r.nextElementSibling.querySelector('span:first-child');
-                        if (span) {
-                            span.classList.remove('bg-primary', 'border-primary');
-                            span.classList.add('border-gray-300');
-                        }
+                        r.nextElementSibling.querySelector('span:first-child').classList.remove('bg-primary', 'border-primary');
+                        r.nextElementSibling.querySelector('span:first-child').classList.add('border-gray-300');
                     });
                     if (this.checked) {
-                        const span = this.nextElementSibling.querySelector('span:first-child');
-                        if (span) {
-                            span.classList.remove('border-gray-300');
-                            span.classList.add('bg-primary', 'border-primary');
-                        }
+                        this.nextElementSibling.querySelector('span:first-child').classList.remove('border-gray-300');
+                        this.nextElementSibling.querySelector('span:first-child').classList.add('bg-primary', 'border-primary');
                     }
                 });
                 // 페이지 로드 시 초기 선택된 라디오 버튼 스타일 적용
-                if (radio.checked) {
-                    const span = radio.nextElementSibling.querySelector('span:first-child');
-                    if (span) {
-                        span.classList.remove('border-gray-300');
-                        span.classList.add('bg-primary', 'border-primary');
-                    }
+                // 초기 로드 시 선택된 라디오 버튼이 없다면 (required가 없는 경우) 첫 번째 라디오 버튼을 선택 상태로 만듦
+                const anyRadioChecked = Array.from(radioButtons).some(radio => radio.checked);
+                if (!anyRadioChecked && radioButtons.length > 0) {
+                     // 첫 번째 라디오 버튼을 기본으로 체크하고 스타일 적용
+                    radioButtons[0].checked = true;
+                    radioButtons[0].nextElementSibling.querySelector('span:first-child').classList.remove('border-gray-300');
+                    radioButtons[0].nextElementSibling.querySelector('span:first-child').classList.add('bg-primary', 'border-primary');
+                } else if (radio.checked) {
+                    radio.nextElementSibling.querySelector('span:first-child').classList.remove('border-gray-300');
+                    radio.nextElementSibling.querySelector('span:first-child').classList.add('bg-primary', 'border-primary');
                 }
             });
-        });
 
-        // 주문 폼 유효성 검사 및 제출 스크립트
-        document.addEventListener('DOMContentLoaded', function() {
             const orderForm = document.getElementById('order-form'); 
             if (orderForm) {
                 orderForm.addEventListener('submit', function(e) {
-                    e.preventDefault(); // Netlify Forms는 기본 제출 동작을 사용하므로, GAS를 사용하지 않는다면 이 줄은 제거해야 합니다.
+                    e.preventDefault(); 
                     
                     const name = document.getElementById('name');
                     const phone = document.getElementById('phone');
                     const address = document.getElementById('address');
-                    const paymentRadios = document.querySelectorAll('input[name="paymentMethod"]'); // name 변경
+                    const paymentRadios = document.querySelectorAll('input[name="paymentMethod"]'); 
                     const agreeCheckbox = document.getElementById('agree-terms');
 
                     let isValid = true;
@@ -266,7 +270,7 @@
                     }
                     if (!isPaymentSelected) {
                         errorMessage.push('결제 방법을 선택해주세요.');
-                        const firstPaymentRadio = document.querySelector('input[name="paymentMethod"]'); // name 변경
+                        const firstPaymentRadio = document.querySelector('input[name="paymentMethod"]'); 
                         if (isValid && firstPaymentRadio) firstPaymentRadio.focus();
                         isValid = false;
                     }
@@ -280,43 +284,42 @@
                     if (!isValid) {
                         alert(errorMessage.join('\n'));
                     } else {
-                        // Netlify Forms 사용 시 (data-netlify="true" 속성으로 자동 처리)
-                        // 이 부분의 JS는 Netlify Forms가 작동하는 데 필요하지 않습니다.
-                        // 하지만 Google Apps Script 연동을 원한다면, 아래 fetch 코드를 사용해야 합니다.
-
                         // [Google Apps Script 연동을 위한 예시 코드]
-                        // const GOOGLE_APPS_SCRIPT_WEB_APP_URL = 'YOUR_ORDER_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE'; // 여기에 GAS 웹 앱 URL 삽입
+                        const GOOGLE_APPS_SCRIPT_WEB_APP_URL = 'YOUR_ORDER_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE'; // 여기에 GAS 웹 앱 URL 삽입
 
-                        // if (GOOGLE_APPS_SCRIPT_WEB_APP_URL !== 'YOUR_ORDER_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE') {
-                        //     fetch(GOOGLE_APPS_SCRIPT_WEB_APP_URL, {
-                        //         method: 'POST',
-                        //         mode: 'no-cors', // Apps Script로 보낼 때는 no-cors 모드 사용
-                        //         headers: { 'Content-Type': 'application/json' },
-                        //         body: JSON.stringify({
-                        //             formType: 'orderForm', // GAS에서 폼 유형을 구분하기 위한 필드
-                        //             customerName: name.value,
-                        //             customerPhone: phone.value,
-                        //             deliveryAddress: address.value,
-                        //             specialRequest: document.getElementById('request').value,
-                        //             paymentMethod: document.querySelector('input[name="paymentMethod"]:checked').value, // name 변경
-                        //             privacyConsent: agreeCheckbox.checked
-                        //         }),
-                        //     })
-                        //     .then(() => {
-                        //         alert('주문이 성공적으로 접수되었습니다. 감사합니다!');
-                        //         orderForm.reset();
-                        //         window.location.href = '호호참숯불닭발-홈피.html#menu'; // 메인 메뉴로 리디렉션
-                        //     })
-                        //     .catch(error => {
-                        //         console.error('Error:', error);
-                        //         alert('주문 중 오류가 발생했습니다. 다시 시도해주세요.');
-                        //     });
-                        // } else {
+                        if (GOOGLE_APPS_SCRIPT_WEB_APP_URL !== 'YOUR_ORDER_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE') {
+                            fetch(GOOGLE_APPS_SCRIPT_WEB_APP_URL, {
+                                method: 'POST',
+                                mode: 'no-cors', // Apps Script로 보낼 때는 no-cors 모드 사용
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({
+                                    formType: 'orderForm', // GAS에서 폼 유형을 구분하기 위한 필드
+                                    customerName: name.value,
+                                    customerPhone: phone.value,
+                                    deliveryAddress: address.value,
+                                    specialRequest: document.getElementById('request').value,
+                                    paymentMethod: document.querySelector('input[name="paymentMethod"]:checked').value, 
+                                    privacyConsent: agreeCheckbox.checked
+                                }),
+                            })
+                            .then(() => {
+                                alert('주문이 성공적으로 접수되었습니다. 감사합니다!');
+                                orderForm.reset();
+                                // 성공적으로 제출 후, 원래 페이지로 돌아가 스크롤 위치 복원
+                                const prevScroll = sessionStorage.getItem('scrollPosition') || 0;
+                                window.location.href = 'index.html#menu'; 
+                                setTimeout(() => window.scrollTo(0, prevScroll), 100); // 약간의 딜레이 후 스크롤
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                                alert('주문 중 오류가 발생했습니다. 다시 시도해주세요.');
+                            });
+                        } else {
                             // Netlify Forms를 기본으로 사용하는 경우
-                            // 폼 유효성 검사 통과 후 폼을 직접 제출 (Netlify가 처리)
                             alert('주문이 성공적으로 접수되었습니다. 감사합니다!');
                             e.target.submit(); // Netlify Forms를 위해 폼을 제출
-                        // }
+                            // Netlify Forms는 제출 후 자동 리디렉션/페이지 새로고침을 하므로, 스크롤 복원 로직은 이 경우 불필요
+                        }
                     }
                 });
             }
