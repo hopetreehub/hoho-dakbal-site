@@ -39,21 +39,16 @@
             background-color: #f8f8f8;
         }
         /* 커스텀 라디오 버튼 스타일 */
-        input[type="radio"] + label {
-            display: flex; /* 라벨 자체를 flex 컨테이너로 */
-            align-items: center; /* 아이콘과 텍스트 세로 중앙 정렬 */
-            cursor: pointer;
-        }
         input[type="radio"] + label span:first-child {
             display: inline-block;
             width: 20px;
             height: 20px;
-            margin-right: 8px; /* 아이콘과 텍스트 간격 조정 */
+            margin-right: 8px;
             border-radius: 9999px; /* full rounded */
             border: 2px solid #D1D5DB; /* gray-300 */
             transition: all 0.2s ease-in-out;
             position: relative;
-            flex-shrink: 0; /* 라디오 버튼 자체의 크기 고정 */
+            vertical-align: middle;
         }
         input[type="radio"]:checked + label span:first-child {
             border-color: var(--tw-colors-primary);
@@ -74,17 +69,14 @@
         .custom-checkbox {
             position: relative;
             cursor: pointer;
-            display: flex; /* 내부 요소들을 flex로 정렬 */
-            align-items: center; /* 체크박스와 텍스트를 세로 중앙 정렬 */
         }
         .custom-checkbox input {
             position: absolute;
             opacity: 0;
             cursor: pointer;
-            z-index: 1; /* 클릭 영역 확보 */
         }
         .custom-checkbox .checkmark {
-            position: relative; /* input 위에 배치하기 위함 */
+            position: absolute;
             top: 0;
             left: 0;
             height: 20px;
@@ -92,7 +84,6 @@
             background-color: #fff;
             border: 2px solid var(--tw-colors-primary);
             border-radius: 4px;
-            flex-shrink: 0; /* 체크박스 자체의 크기 고정 */
         }
         .custom-checkbox input:checked ~ .checkmark:after {
             content: "";
@@ -106,22 +97,20 @@
             border-width: 0 2px 2px 0;
             transform: rotate(45deg);
         }
-        .custom-checkbox span:last-child {
-            margin-left: 8px; /* 텍스트와 체크박스 간격 조정 */
-        }
     </style>
 </head>
 <body>
     <!-- 상단 바 (간소화) -->
     <header class="bg-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center text-gray-900">
-                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                    <span class="text-white font-bold">호호</span>
+            <a href="호호참숯불닭발-홈피.html" class="flex items-center text-gray-900">
+                <!-- 로고 이미지가 들어갈 자리 (호호 로고 파일을 ./images/hoho-logo.png 에 저장하고 사용하세요) -->
+                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center overflow-hidden">
+                    <img src="./images/hoho-logo.png" alt="호호참숯불닭발 로고" class="w-full h-full object-contain p-1">
                 </div>
                 <h1 class="ml-2 text-xl font-bold">호호참숯불닭발</h1>
             </a>
-            <a href="index.html#menu" class="text-gray-700 hover:text-primary font-medium">
+            <a href="호호참숯불닭발-홈피.html#menu" class="text-gray-700 hover:text-primary font-medium">
                 메뉴 목록으로 돌아가기
             </a>
         </div>
@@ -140,9 +129,8 @@
                 <div class="p-8">
                     <!-- 제목 수정 가능 -->
                     <h3 class="text-2xl font-semibold mb-6">배달 주문 정보</h3>
-                    <!-- Netlify Forms 설정: name="order-form", data-netlify="true", netlify-honeypot="bot-field" 추가 -->
-                    <!-- action="/index.html#menu"를 사용하여 제출 후 메인 페이지의 메뉴 섹션으로 리다이렉트 -->
-                    <form id="order-form" name="order-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/index.html#menu" class="space-y-6">
+                    <!-- Netlify Forms 또는 Google Apps Script 연동을 위한 form 태그 추가 -->
+                    <form id="order-form" name="order" method="POST" data-netlify="true" class="space-y-6" netlify-honeypot="bot-field">
                         <!-- Netlify Forms 스팸 방지 필드 (숨김) -->
                         <p class="hidden">
                             <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
@@ -171,20 +159,20 @@
                             <div class="space-y-2">
                                 <div class="flex items-center">
                                     <input type="radio" id="payment-card" name="paymentMethod" value="신용카드" required>
-                                    <label for="payment-card">
-                                        <span></span>신용카드
+                                    <label for="payment-card" class="flex items-center cursor-pointer">
+                                        <span>신용카드</span>
                                     </label>
                                 </div>
                                 <div class="flex items-center">
                                     <input type="radio" id="payment-bank" name="paymentMethod" value="계좌이체">
-                                    <label for="payment-bank">
-                                        <span></span>계좌이체
+                                    <label for="payment-bank" class="flex items-center cursor-pointer">
+                                        <span>계좌이체</span>
                                     </label>
                                 </div>
                                 <div class="flex items-center">
                                     <input type="radio" id="payment-cash" name="paymentMethod" value="현금결제">
-                                    <label for="payment-cash">
-                                        <span></span>현금결제
+                                    <label for="payment-cash" class="flex items-center cursor-pointer">
+                                        <span>현금결제</span>
                                     </label>
                                 </div>
                             </div>
@@ -193,8 +181,8 @@
                             <label class="custom-checkbox">
                                 <input type="checkbox" name="privacyConsent" id="agree-terms" required>
                                 <span class="checkmark"></span>
-                                <span class="text-sm text-gray-600">개인정보 수집 및 이용에 동의합니다.</span>
                             </label>
+                            <span class="ml-7 text-sm text-gray-600">개인정보 수집 및 이용에 동의합니다.</span>
                         </div>
                         <div class="text-center">
                             <button type="submit" class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">주문하기</button>
@@ -210,16 +198,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             const radioButtons = document.querySelectorAll('input[type="radio"][name="paymentMethod"]');
             radioButtons.forEach(radio => {
-                // 라디오 버튼의 텍스트를 감싸는 span 태그를 생성하고 이동
-                const label = radio.nextElementSibling; // 현재 라디오 버튼 바로 다음의 label
-                if (label && label.tagName === 'LABEL') {
-                    // 이미 span이 없다면 생성하고 추가
-                    if (!label.querySelector('span:first-child')) {
-                        const spanForRadioIcon = document.createElement('span'); // 라디오 아이콘용 span
-                        label.insertBefore(spanForRadioIcon, label.firstChild); // 아이콘 span을 텍스트 앞에 삽입
-                    }
-                }
-
                 radio.addEventListener('change', function() {
                     document.querySelectorAll(`input[name="${this.name}"]`).forEach(r => {
                         const span = r.nextElementSibling.querySelector('span:first-child');
@@ -252,12 +230,12 @@
             const orderForm = document.getElementById('order-form'); 
             if (orderForm) {
                 orderForm.addEventListener('submit', function(e) {
-                    e.preventDefault(); // 클라이언트 유효성 검사를 위해 기본 제출 동작 방지
+                    e.preventDefault(); // Netlify Forms는 기본 제출 동작을 사용하므로, GAS를 사용하지 않는다면 이 줄은 제거해야 합니다.
                     
                     const name = document.getElementById('name');
                     const phone = document.getElementById('phone');
                     const address = document.getElementById('address');
-                    const paymentRadios = document.querySelectorAll('input[name="paymentMethod"]'); 
+                    const paymentRadios = document.querySelectorAll('input[name="paymentMethod"]'); // name 변경
                     const agreeCheckbox = document.getElementById('agree-terms');
 
                     let isValid = true;
@@ -288,7 +266,7 @@
                     }
                     if (!isPaymentSelected) {
                         errorMessage.push('결제 방법을 선택해주세요.');
-                        const firstPaymentRadio = document.querySelector('input[name="paymentMethod"]'); 
+                        const firstPaymentRadio = document.querySelector('input[name="paymentMethod"]'); // name 변경
                         if (isValid && firstPaymentRadio) firstPaymentRadio.focus();
                         isValid = false;
                     }
@@ -302,10 +280,43 @@
                     if (!isValid) {
                         alert(errorMessage.join('\n'));
                     } else {
-                        // Netlify Forms는 data-netlify="true" 속성으로 자동 처리됩니다.
-                        // 클라이언트 유효성 검사 후, 폼을 수동으로 제출합니다.
-                        alert('주문이 성공적으로 접수되었습니다. 감사합니다!');
-                        e.target.submit(); // 폼을 Netlify Forms로 제출하고, action 속성으로 리다이렉트
+                        // Netlify Forms 사용 시 (data-netlify="true" 속성으로 자동 처리)
+                        // 이 부분의 JS는 Netlify Forms가 작동하는 데 필요하지 않습니다.
+                        // 하지만 Google Apps Script 연동을 원한다면, 아래 fetch 코드를 사용해야 합니다.
+
+                        // [Google Apps Script 연동을 위한 예시 코드]
+                        // const GOOGLE_APPS_SCRIPT_WEB_APP_URL = 'YOUR_ORDER_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE'; // 여기에 GAS 웹 앱 URL 삽입
+
+                        // if (GOOGLE_APPS_SCRIPT_WEB_APP_URL !== 'YOUR_ORDER_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE') {
+                        //     fetch(GOOGLE_APPS_SCRIPT_WEB_APP_URL, {
+                        //         method: 'POST',
+                        //         mode: 'no-cors', // Apps Script로 보낼 때는 no-cors 모드 사용
+                        //         headers: { 'Content-Type': 'application/json' },
+                        //         body: JSON.stringify({
+                        //             formType: 'orderForm', // GAS에서 폼 유형을 구분하기 위한 필드
+                        //             customerName: name.value,
+                        //             customerPhone: phone.value,
+                        //             deliveryAddress: address.value,
+                        //             specialRequest: document.getElementById('request').value,
+                        //             paymentMethod: document.querySelector('input[name="paymentMethod"]:checked').value, // name 변경
+                        //             privacyConsent: agreeCheckbox.checked
+                        //         }),
+                        //     })
+                        //     .then(() => {
+                        //         alert('주문이 성공적으로 접수되었습니다. 감사합니다!');
+                        //         orderForm.reset();
+                        //         window.location.href = '호호참숯불닭발-홈피.html#menu'; // 메인 메뉴로 리디렉션
+                        //     })
+                        //     .catch(error => {
+                        //         console.error('Error:', error);
+                        //         alert('주문 중 오류가 발생했습니다. 다시 시도해주세요.');
+                        //     });
+                        // } else {
+                            // Netlify Forms를 기본으로 사용하는 경우
+                            // 폼 유효성 검사 통과 후 폼을 직접 제출 (Netlify가 처리)
+                            alert('주문이 성공적으로 접수되었습니다. 감사합니다!');
+                            e.target.submit(); // Netlify Forms를 위해 폼을 제출
+                        // }
                     }
                 });
             }

@@ -21,7 +21,7 @@
                         'lg': '16px',
                         'xl': '20px',
                         '2xl': '24px',
-                        '3xl': '32px', 
+                        '3xl': '32px', // Tailwind 기본 3xl은 32px
                         'full': '9999px',
                         'button': '8px'
                     }
@@ -63,13 +63,14 @@
     <!-- 상단 바 (간소화) -->
     <header class="bg-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center text-gray-900">
-                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                    <span class="text-white font-bold">호호</span>
+            <a href="호호참숯불닭발-홈피.html" class="flex items-center text-gray-900">
+                <!-- 로고 이미지가 들어갈 자리 (호호 로고 파일을 ./images/hoho-logo.png 에 저장하고 사용하세요) -->
+                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center overflow-hidden">
+                    <img src="./images/hoho-logo.png" alt="호호참숯불닭발 로고" class="w-full h-full object-contain p-1">
                 </div>
                 <h1 class="ml-2 text-xl font-bold">호호참숯불닭발</h1>
             </a>
-            <a href="index.html#review" class="text-gray-700 hover:text-primary font-medium">
+            <a href="호호참숯불닭발-홈피.html#review" class="text-gray-700 hover:text-primary font-medium">
                 리뷰 목록으로 돌아가기
             </a>
         </div>
@@ -83,9 +84,8 @@
                 <p class="text-gray-600">호호참숯불닭발에 대한 소중한 의견을 남겨주세요!</p>
             </div>
             
-            <!-- Netlify Forms 설정: name="review-form", data-netlify="true", netlify-honeypot="bot-field" 추가 -->
-            <!-- action="/index.html#review"를 사용하여 제출 후 메인 페이지의 리뷰 섹션으로 리다이렉트 -->
-            <form id="review-form" name="review-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/index.html#review" class="space-y-6">
+            <!-- Netlify Forms 또는 Google Apps Script 연동을 위한 form 태그 추가 -->
+            <form id="review-form" name="review" method="POST" data-netlify="true" class="space-y-6" netlify-honeypot="bot-field">
                 <!-- Netlify Forms 스팸 방지 필드 (숨김) -->
                 <p class="hidden">
                     <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
@@ -131,7 +131,7 @@
             const reviewForm = document.getElementById('review-form');
             if (reviewForm) {
                 reviewForm.addEventListener('submit', function(e) {
-                    e.preventDefault(); // 클라이언트 유효성 검사를 위해 기본 제출 동작 방지
+                    e.preventDefault(); // Netlify Forms는 기본 제출 동작을 사용하므로, GAS를 사용하지 않는다면 이 줄은 제거해야 합니다.
                     
                     const name = document.getElementById('reviewer-name');
                     const title = document.getElementById('review-title');
@@ -166,10 +166,41 @@
                     if (!isValid) {
                         alert(errorMessage.join('\n'));
                     } else {
-                        // Netlify Forms는 data-netlify="true" 속성으로 자동 처리됩니다.
-                        // 클라이언트 유효성 검사 후, 폼을 수동으로 제출합니다.
-                        alert('리뷰가 성공적으로 제출되었습니다. 소중한 의견 감사합니다!');
-                        e.target.submit(); // 폼을 Netlify Forms로 제출하고, action 속성으로 리다이렉트
+                        // Netlify Forms 사용 시 (data-netlify="true" 속성으로 자동 처리)
+                        // 이 부분의 JS는 Netlify Forms가 작동하는 데 필요하지 않습니다.
+                        // 하지만 Google Apps Script 연동을 원한다면, 아래 fetch 코드를 사용해야 합니다.
+                        
+                        // [Google Apps Script 연동을 위한 예시 코드]
+                        // const GOOGLE_APPS_SCRIPT_WEB_APP_URL = 'YOUR_REVIEW_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE'; // 여기에 GAS 웹 앱 URL 삽입
+
+                        // if (GOOGLE_APPS_SCRIPT_WEB_APP_URL !== 'YOUR_REVIEW_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE') {
+                        //     fetch(GOOGLE_APPS_SCRIPT_WEB_APP_URL, {
+                        //         method: 'POST',
+                        //         mode: 'no-cors', // Apps Script로 보낼 때는 no-cors 모드 사용
+                        //         headers: { 'Content-Type': 'application/json' },
+                        //         body: JSON.stringify({
+                        //             formType: 'reviewForm', // GAS에서 폼 유형을 구분하기 위한 필드
+                        //             reviewerName: name.value,
+                        //             reviewTitle: title.value,
+                        //             rating: rating ? rating.value : '0',
+                        //             reviewContent: content.value
+                        //         }),
+                        //     })
+                        //     .then(() => {
+                        //         alert('리뷰가 성공적으로 제출되었습니다. 소중한 의견 감사합니다!');
+                        //         reviewForm.reset();
+                        //         window.location.href = '호호참숯불닭발-홈피.html#review'; // 메인 리뷰 섹션으로 리디렉션
+                        //     })
+                        //     .catch(error => {
+                        //         console.error('Error:', error);
+                        //         alert('리뷰 제출 중 오류가 발생했습니다. 다시 시도해주세요.');
+                        //     });
+                        // } else {
+                            // Netlify Forms를 기본으로 사용하는 경우
+                            // 폼 유효성 검사 통과 후 폼을 직접 제출 (Netlify가 처리)
+                            alert('리뷰가 성공적으로 제출되었습니다. 소중한 의견 감사합니다!');
+                            e.target.submit(); // Netlify Forms를 위해 폼을 제출
+                        // }
                     }
                 });
             }
