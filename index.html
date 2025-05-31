@@ -45,12 +45,14 @@
         .logo-container {
             position: relative;
         }
+        /* 불꽃 아이콘 제거로 이 스타일은 더 이상 사용되지 않음
         .logo-flame {
             position: absolute;
             top: -10px;
             right: -10px;
             transform: rotate(15deg);
         }
+        */
 
         .hero-section {
             /* 히어로 섹션 배경 이미지 URL 적용 */
@@ -82,12 +84,11 @@
             background-color: #E53E3E; /* primary 색상보다 진하게 */
             transform: translateY(-2px); /* 살짝 떠오르는 느낌 */
             box-shadow: 0 8px 15px rgba(255, 59, 48, 0.3); /* 강한 그림자 */
-            /* 텍스트 색상 변화 (흰색 버튼일 경우) */
-            color: #FF3B30; /* Primary 색상 */
+            color: #fff !important; /* 모든 hover-strong 버튼의 텍스트를 흰색으로 강제 */
         }
-        .hover-strong.bg-primary:hover {
-            background-color: #C52C2C; /* primary 색상 더 진하게 */
-            color: #fff; /* 흰색 텍스트 유지 */
+        /* hover-strong이면서 border가 있는 흰색 버튼의 기본 텍스트 색상 */
+        .hover-strong.text-primary.border-primary {
+            color: #FF3B30; /* primary 색상 텍스트 */
         }
 
 
@@ -107,15 +108,16 @@
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <div class="logo-container flex items-center">
-                        <!-- 헤더 로고 이미지 적용 -->
+                        <!-- 헤더 로고 이미지 적용 (배경 제거) -->
                         <div class="w-12 h-12 flex items-center justify-center overflow-hidden">
                             <img src="https://res.cloudinary.com/dc7yeqa9m/image/upload/v1748716032/Black_Yellow_Brush_Streetwear_Brand_Logo_3_oy1qjg.png" alt="호호참숯불닭발 로고" class="w-full h-full object-contain">
                         </div>
                         <!-- 로고 텍스트 수정 가능 -->
                         <h1 class="ml-2 text-2xl logo-text text-gray-900">호호참숯불닭발</h1>
-                        <div class="logo-flame w-6 h-6 bg-secondary rounded-full flex items-center justify-center">
+                        <!-- 불꽃 아이콘 제거 -->
+                        <!-- <div class="logo-flame w-6 h-6 bg-secondary rounded-full flex items-center justify-center">
                             <i class="ri-fire-fill text-white"></i>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <!-- 데스크탑 메뉴 -->
@@ -391,7 +393,7 @@
             </div>
             <div class="text-center mt-12">
                 <!-- 메뉴 접기 버튼 -->
-                <button id="hide-detailed-menu" class="bg-white border-2 border-gray-400 text-gray-700 px-8 py-3 rounded-button font-bold hover:bg-gray-100 transition-all whitespace-nowrap">
+                <button id="hide-detailed-menu" class="bg-white border-2 border-gray-400 text-gray-700 px-8 py-3 rounded-button font-bold hover-strong">
                     메뉴 접기
                 </button>
             </div>
@@ -400,7 +402,7 @@
 
 
     <!-- 호호참숯불닭발 이야기 (YouTube 임베드 섹션) -->
-    <section id="youtube-story" class="py-20 section-white">
+    <section id="youtube-story" class="py-20 section-primary-tint">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <!-- 제목 수정 가능 -->
@@ -459,7 +461,7 @@
     </section>
 
     <!-- 매장 안내 섹션 -->
-    <section id="location" class="py-20 section-primary-tint">
+    <section id="location" class="py-20 section-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <!-- 제목 수정 가능 -->
@@ -491,7 +493,6 @@
                                 <h4 class="font-medium text-gray-900">영업시간</h4>
                                 <!-- 영업시간 수정 (라스트오더 삭제) -->
                                 <p class="text-gray-600">매일 오후 4시부터 새벽 2시까지</p>
-                                <p class="text-gray-600">매주 월요일 휴무</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -530,7 +531,7 @@
     </section>
 
     <!-- 고객 리뷰 섹션 -->
-    <section id="review" class="py-20 section-white">
+    <section id="review" class="py-20 section-primary-tint">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <!-- 제목 수정 가능 -->
@@ -640,7 +641,7 @@
     </section>
 
     <!-- 뉴스레터 구독 섹션 -->
-    <section id="newsletter" class="py-20 section-primary-tint">
+    <section id="newsletter" class="py-20 section-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <!-- 제목 수정 가능 -->
             <h2 class="text-3xl font-bold text-gray-900 mb-4">특별한 <span class="text-primary">소식</span>을 받아보세요</h2>
@@ -680,17 +681,32 @@
             <div class="flex flex-col md:flex-row justify-between">
                 <div class="mb-8 md:mb-0">
                     <div class="flex items-center mb-6">
-                        <!-- 푸터 로고 이미지 적용 -->
+                        <!-- 푸터 로고 이미지 적용 (배경 제거) -->
                         <div class="w-10 h-10 flex items-center justify-center overflow-hidden">
                             <img src="https://res.cloudinary.com/dc7yeqa9m/image/upload/v1748716559/Black_Yellow_Brush_Streetwear_Brand_Logo_4_pobp4v.png" alt="호호참숯불닭발 로고" class="w-full h-full object-contain">
                         </div>
                         <!-- 로고 텍스트 수정 가능 -->
                         <h2 class="ml-2 text-xl font-bold">호호참숯불닭발</h2>
                     </div>
-                    <!-- 설명 수정 가능 -->
-                    <p class="text-gray-400 max-w-md">
-                        호호참숯불닭발은 엄선된 재료와 특별한 조리법으로 최고의 맛을 선사합니다. 전국 각지에서 호호참숯불닭발의 맛을 경험해보세요.
-                    </p>
+                    <!-- 푸터 회사 정보 -->
+                    <p class="text-gray-400 text-sm mb-2">대표자: 이수연 | 사업자등록번호: 343-23-00944</p>
+                    <p class="text-gray-400 text-sm mb-4">주소: (39186) 경상북도 구미시 산호대로25길 34-29, 1층(옥계동)</p>
+                    
+                    <!-- 소셜 미디어 아이콘 -->
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center">
+                            <i class="ri-facebook-line"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center">
+                            <i class="ri-youtube-line"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center">
+                            <i class="ri-kakao-talk-line"></i>
+                        </a>
+                    </div>
                 </div>
                 
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
@@ -731,29 +747,9 @@
                 </div>
             </div>
             
-            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <div class="text-gray-400 text-sm mb-4 md:mb-0">
-                    <!-- 저작권 및 사업자 정보 수정 가능 -->
-                    <p class="mb-1">© 2025 호호참숯불닭발. All rights reserved.</p>
-                    <p class="mb-1">대표자: 이수연 | 사업자등록번호: 343-23-00944</p>
-                    <p class="mb-1">주소: (39186) 경상북도 구미시 산호대로25길 34-29, 1층(옥계동)</p>
-                </div>
-                
-                <div class="flex space-x-6">
-                    <!-- 소셜 미디어 링크 수정 가능 -->
-                    <a href="#" class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center">
-                        <i class="ri-instagram-line"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center">
-                        <i class="ri-facebook-line"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center">
-                        <i class="ri-youtube-line"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center">
-                        <i class="ri-kakao-talk-line"></i>
-                    </a>
-                </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-gray-400 text-sm text-center">
+                <!-- 저작권 문구 중앙 정렬 -->
+                <p>© 2025 호호참숯불닭발. All rights reserved.</p>
             </div>
         </div>
     </footer>
